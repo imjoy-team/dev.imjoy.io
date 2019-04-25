@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.6e6ddb3acce80da97c23f185756a3bf6.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("/precache-manifest.4422948efeedbc5ed25c3dde3656b795.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 if (workbox) {
     console.log(`Workbox is loaded`);
@@ -23,6 +23,12 @@ if (workbox) {
     workbox.routing.registerRoute(
       new RegExp('https://static.imjoy.io/.*'),
       new workbox.strategies.CacheFirst(),
+    );
+
+    // manifest.imjoy.json etc.
+    workbox.routing.registerRoute(
+      new RegExp('https://raw.githubusercontent.com/.*'),
+      new workbox.strategies.NetworkFirst(),
     );
 
     workbox.routing.setDefaultHandler(new workbox.strategies.NetworkOnly());
