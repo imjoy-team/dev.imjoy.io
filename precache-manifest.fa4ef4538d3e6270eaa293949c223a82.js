@@ -12,8 +12,8 @@ self.__precacheManifest = [
     "url": "/static/vs/loader.js"
   },
   {
-    "revision": "3d896c0dfc1a9d7da060cd06dcbf0dff",
-    "url": "/static/vs/basic-languages/csp/csp.js"
+    "revision": "e170e435b67b7f9a45d69ce4bdfeaa05",
+    "url": "/static/vs/basic-languages/csharp/csharp.js"
   },
   {
     "revision": "06ee0b74ce7d3d63db12",
@@ -264,28 +264,12 @@ self.__precacheManifest = [
     "url": "/static/vs/language/json/jsonMode.js"
   },
   {
-    "revision": "7c5522016f018c3226287c88363be05b",
-    "url": "/static/vs/editor/editor.main.nls.ja.js"
-  },
-  {
-    "revision": "6c2e4bbc2f1390147bb8705f79cb58e7",
-    "url": "/static/vs/editor/editor.main.nls.js"
-  },
-  {
-    "revision": "bb56d521fd9e0ac3bcb5c468907300ea",
-    "url": "/static/vs/editor/editor.main.nls.zh-cn.js"
-  },
-  {
     "revision": "2062c186031ecda7b3c52a7de847ddc7",
     "url": "/static/vs/editor/editor.main.nls.zh-tw.js"
   },
   {
-    "revision": "65a437a349f6e024e14a84bdae3b94e5",
-    "url": "/static/vs/editor/editor.main.nls.es.js"
-  },
-  {
-    "revision": "6d0cbdd6e06c3e3c3eea8c05cf7918fa",
-    "url": "/static/vs/editor/editor.main.nls.it.js"
+    "revision": "bb56d521fd9e0ac3bcb5c468907300ea",
+    "url": "/static/vs/editor/editor.main.nls.zh-cn.js"
   },
   {
     "revision": "09e5a4cc32305727ff958438e4c3fad1",
@@ -296,12 +280,28 @@ self.__precacheManifest = [
     "url": "/static/vs/editor/editor.main.nls.ru.js"
   },
   {
-    "revision": "2b6ac4494944b92db7dcfa0ce3a605ed",
-    "url": "/static/vs/editor/editor.main.nls.de.js"
+    "revision": "6c2e4bbc2f1390147bb8705f79cb58e7",
+    "url": "/static/vs/editor/editor.main.nls.js"
+  },
+  {
+    "revision": "6d0cbdd6e06c3e3c3eea8c05cf7918fa",
+    "url": "/static/vs/editor/editor.main.nls.it.js"
+  },
+  {
+    "revision": "7c5522016f018c3226287c88363be05b",
+    "url": "/static/vs/editor/editor.main.nls.ja.js"
   },
   {
     "revision": "a8fb0f322b584b488bd572adf086cdcd",
     "url": "/static/vs/editor/editor.main.nls.fr.js"
+  },
+  {
+    "revision": "2b6ac4494944b92db7dcfa0ce3a605ed",
+    "url": "/static/vs/editor/editor.main.nls.de.js"
+  },
+  {
+    "revision": "65a437a349f6e024e14a84bdae3b94e5",
+    "url": "/static/vs/editor/editor.main.nls.es.js"
   },
   {
     "revision": "a14fcc89b2e121908c5cc7ec97787dfe",
@@ -380,16 +380,16 @@ self.__precacheManifest = [
     "url": "/static/vs/basic-languages/apex/apex.js"
   },
   {
-    "revision": "4edff85fd6c64e02f374ab7ee5f8b602",
-    "url": "/static/vs/basic-languages/bat/bat.js"
-  },
-  {
     "revision": "90760425b1716d5a6bfc2fe688b65b9d",
     "url": "/static/vs/basic-languages/azcli/azcli.js"
   },
   {
-    "revision": "a80cb9755dba76010fd552c8d3367797",
-    "url": "/static/vs/basic-languages/powerquery/powerquery.js"
+    "revision": "4edff85fd6c64e02f374ab7ee5f8b602",
+    "url": "/static/vs/basic-languages/bat/bat.js"
+  },
+  {
+    "revision": "a024047752a1edf524ebbf17393158b8",
+    "url": "/static/vs/basic-languages/pgsql/pgsql.js"
   },
   {
     "revision": "af473f2532ab4787401a193aed972e25",
@@ -400,12 +400,16 @@ self.__precacheManifest = [
     "url": "/static/js/chunk-2d0aab07.b055a499.js"
   },
   {
+    "revision": "3d896c0dfc1a9d7da060cd06dcbf0dff",
+    "url": "/static/vs/basic-languages/csp/csp.js"
+  },
+  {
     "revision": "06f213c5b340af360951b8ab0d07a4f2",
     "url": "/static/vs/basic-languages/dockerfile/dockerfile.js"
   },
   {
-    "revision": "e170e435b67b7f9a45d69ce4bdfeaa05",
-    "url": "/static/vs/basic-languages/csharp/csharp.js"
+    "revision": "27d46863c5d7d05c9f487bba74e106a0",
+    "url": "/static/vs/basic-languages/css/css.js"
   },
   {
     "revision": "e76682ef8f4b2557e753aeac4ce6df1a",
@@ -416,32 +420,32 @@ self.__precacheManifest = [
     "url": "/static/vs/basic-languages/go/go.js"
   },
   {
-    "revision": "27d46863c5d7d05c9f487bba74e106a0",
-    "url": "/static/vs/basic-languages/css/css.js"
+    "revision": "21fe6ad0bf2ad621a3465f3b3121cc0a",
+    "url": "/static/vs/basic-languages/ini/ini.js"
   },
   {
     "revision": "eaa375ad991e2dd79a645cc02600d51c",
     "url": "/static/vs/basic-languages/html/html.js"
   },
   {
-    "revision": "2645b644f7e31880101cca552faf5e7b",
-    "url": "/static/vs/basic-languages/java/java.js"
-  },
-  {
-    "revision": "21fe6ad0bf2ad621a3465f3b3121cc0a",
-    "url": "/static/vs/basic-languages/ini/ini.js"
-  },
-  {
     "revision": "741948277b00c3dbdaf2c48c3b4b21c8",
     "url": "/static/vs/basic-languages/handlebars/handlebars.js"
   },
   {
-    "revision": "d38afb4a2727c22d145458825c210eee",
-    "url": "/static/vs/basic-languages/less/less.js"
+    "revision": "2645b644f7e31880101cca552faf5e7b",
+    "url": "/static/vs/basic-languages/java/java.js"
   },
   {
     "revision": "8618cd52e61a015cb4fbdd890f4773a5",
     "url": "/static/vs/basic-languages/javascript/javascript.js"
+  },
+  {
+    "revision": "59508c8afefbc43b359c085d36c696d0",
+    "url": "/static/vs/basic-languages/lua/lua.js"
+  },
+  {
+    "revision": "1ac0d1e51f549a643b2395f7aef440c1",
+    "url": "/static/vs/basic-languages/msdax/msdax.js"
   },
   {
     "revision": "594f09e819d3632c0441c5787edd126d",
@@ -452,68 +456,60 @@ self.__precacheManifest = [
     "url": "/static/vs/basic-languages/objective-c/objective-c.js"
   },
   {
-    "revision": "1ac0d1e51f549a643b2395f7aef440c1",
-    "url": "/static/vs/basic-languages/msdax/msdax.js"
+    "revision": "9acad8ab8539f0e246aceed5e0f2b932",
+    "url": "/static/vs/basic-languages/powershell/powershell.js"
   },
   {
-    "revision": "59508c8afefbc43b359c085d36c696d0",
-    "url": "/static/vs/basic-languages/lua/lua.js"
-  },
-  {
-    "revision": "dfac870c87495c0f35ba304467696027",
-    "url": "/static/vs/basic-languages/python/python.js"
+    "revision": "d38afb4a2727c22d145458825c210eee",
+    "url": "/static/vs/basic-languages/less/less.js"
   },
   {
     "revision": "d5640717dc546aafcc787f05295b67c6",
     "url": "/static/vs/basic-languages/pug/pug.js"
   },
   {
-    "revision": "3280ee19a752f6d59079f279d3655fed",
-    "url": "/static/vs/basic-languages/r/r.js"
+    "revision": "dfac870c87495c0f35ba304467696027",
+    "url": "/static/vs/basic-languages/python/python.js"
   },
   {
-    "revision": "9acad8ab8539f0e246aceed5e0f2b932",
-    "url": "/static/vs/basic-languages/powershell/powershell.js"
+    "revision": "3280ee19a752f6d59079f279d3655fed",
+    "url": "/static/vs/basic-languages/r/r.js"
   },
   {
     "revision": "4b8f17c234aae37b8bbe106bed899ad1",
     "url": "/static/vs/basic-languages/redis/redis.js"
   },
   {
-    "revision": "a024047752a1edf524ebbf17393158b8",
-    "url": "/static/vs/basic-languages/pgsql/pgsql.js"
+    "revision": "a80cb9755dba76010fd552c8d3367797",
+    "url": "/static/vs/basic-languages/powerquery/powerquery.js"
   },
   {
     "revision": "b92c2339338153f248226b4fbdd625f8",
     "url": "/static/vs/basic-languages/razor/razor.js"
   },
   {
-    "revision": "2c021e714b0737f3d5d9936ee75ccbed",
-    "url": "/static/vs/basic-languages/postiats/postiats.js"
-  },
-  {
-    "revision": "b350360c0374f8cd6b8d562e52902427",
-    "url": "/static/vs/basic-languages/mysql/mysql.js"
-  },
-  {
     "revision": "df479904e5ffca55c025b5486fa4eca6",
     "url": "/static/vs/basic-languages/php/php.js"
+  },
+  {
+    "revision": "2c021e714b0737f3d5d9936ee75ccbed",
+    "url": "/static/vs/basic-languages/postiats/postiats.js"
   },
   {
     "revision": "ead1f6c7a8bef73c6743a728d8e1ae13",
     "url": "/static/vs/basic-languages/perl/perl.js"
   },
   {
+    "revision": "b350360c0374f8cd6b8d562e52902427",
+    "url": "/static/vs/basic-languages/mysql/mysql.js"
+  },
+  {
     "revision": "2ecf3be124889402c08b4419e7d6db04",
     "url": "/static/vs/basic-languages/clojure/clojure.js"
   },
   {
-    "revision": "d765755b7bd60885245ab699a2dd77b3",
-    "url": "/static/icons/favicon-32x32.png"
-  },
-  {
-    "revision": "e37c947f86aa593ba9e34029c119257a",
-    "url": "/static/img/imjoy-icon.png"
+    "revision": "5d56cd775d49d9c86bc3c711db1b8717",
+    "url": "/static/img/anna-palm-icon-circle.png"
   },
   {
     "revision": "8e7b1b80a4458be8a27eac659447e42d",
@@ -524,84 +520,92 @@ self.__precacheManifest = [
     "url": "/static/img/perspective-hr.jpg"
   },
   {
-    "revision": "26dfd76132f659f0ef33a27e46307bda",
-    "url": "/static/img/imjoy-logo-white.png"
-  },
-  {
-    "revision": "4ff3745dada38b925281e4fe03330cf7",
-    "url": "/static/img/imjoy-logo-black.png"
-  },
-  {
     "revision": "b8859e2632feade2aed6",
     "url": "/static/js/chunk-2d0a3577.39e7cf1b.js"
-  },
-  {
-    "revision": "a69cb9dddcaa24d000d61a2a83328518",
-    "url": "/static/img/imjoy-io-icon.svg"
-  },
-  {
-    "revision": "a0e93a89173b2a0fc62b45edf5e8b4aa",
-    "url": "/static/img/imjoy-logo-black.svg"
-  },
-  {
-    "revision": "0c8de05e92e480a948f58cb8e808f67b",
-    "url": "/static/img/imjoy-icon.svg"
   },
   {
     "revision": "2ac2d65c948103772206c3906fe78b11",
     "url": "/static/img/twitter.svg"
   },
   {
-    "revision": "7de1cb45793d47182017753e49d64cea",
-    "url": "/static/img/logga-KAW-300x155.png"
-  },
-  {
     "revision": "e21b60da0b04ad426fdf5fad1142abd6",
     "url": "/static/img/loader.gif"
+  },
+  {
+    "revision": "7de1cb45793d47182017753e49d64cea",
+    "url": "/static/img/logga-KAW-300x155.png"
   },
   {
     "revision": "818ce23ae6822ab7e5e5",
     "url": "/static/js/app.9b605145.js"
   },
   {
-    "revision": "edba2cda2b6fa6c55e9c7c336d2de3b4",
-    "url": "/static/icons/apple-icon-152x152.png"
-  },
-  {
-    "revision": "da4d6311a3ae413dbc4bec7fd939b3e8",
-    "url": "/static/css/spectre-exp.css"
-  },
-  {
-    "revision": "1dec602940683e2a243fc1af6b97bda8",
-    "url": "/static/img/Institut_Pasteur_logo.svg"
-  },
-  {
-    "revision": "861b6ac15aeed39b13aa390a84045082",
-    "url": "/static/iconfont/codepoints"
-  },
-  {
-    "revision": "2e403999247f5cfd34f041323456f6eb",
-    "url": "/static/icons/ms-icon-310x310.png"
-  },
-  {
-    "revision": "fa67c88f243e4fa2ebd780ff36f34c97",
-    "url": "/static/css/spectre.min.css"
+    "revision": "012cf6a10129e2275d79d6adac7f3b02",
+    "url": "/static/iconfont/MaterialIcons-Regular.woff"
   },
   {
     "revision": "4efc4b6b32a094bfb5aaccbbff3ea510",
     "url": "/static/icons/apple-icon-180x180.png"
   },
   {
+    "revision": "2e403999247f5cfd34f041323456f6eb",
+    "url": "/static/icons/ms-icon-310x310.png"
+  },
+  {
+    "revision": "e37c947f86aa593ba9e34029c119257a",
+    "url": "/static/img/imjoy-icon.png"
+  },
+  {
+    "revision": "a9d66b8c665a3d6c9dd0332e6420bf7b",
+    "url": "/static/img/anna-palm-icon-circle-animation.svg"
+  },
+  {
+    "revision": "075b8cf414d164345ac981e2da839d91",
+    "url": "/static/img/imjoy-card-plain.png"
+  },
+  {
+    "revision": "26dfd76132f659f0ef33a27e46307bda",
+    "url": "/static/img/imjoy-logo-white.png"
+  },
+  {
+    "revision": "146876126af00a90aae7f3dbb54b00cd",
+    "url": "/static/img/by.svg"
+  },
+  {
+    "revision": "1dec602940683e2a243fc1af6b97bda8",
+    "url": "/static/img/Institut_Pasteur_logo.svg"
+  },
+  {
+    "revision": "77d9f96585bb42dcb73f56bc7cc594a4",
+    "url": "/static/icons/apple-icon-precomposed.png"
+  },
+  {
+    "revision": "77d9f96585bb42dcb73f56bc7cc594a4",
+    "url": "/static/icons/apple-icon.png"
+  },
+  {
+    "revision": "0c8de05e92e480a948f58cb8e808f67b",
+    "url": "/static/img/imjoy-icon.svg"
+  },
+  {
+    "revision": "4ff3745dada38b925281e4fe03330cf7",
+    "url": "/static/img/imjoy-logo-black.png"
+  },
+  {
     "revision": "0cc69c2a860acde29e9411275ca4bb8d",
     "url": "/static/img/imjoy-icon-white.svg"
   },
   {
-    "revision": "dec21930a1a4f59520b5c55bff21dc6f",
-    "url": "/static/img/github-white.svg"
-  },
-  {
     "revision": "f0d21da3f74ffbbcc644dafd7b957e57",
     "url": "/static/img/github.svg"
+  },
+  {
+    "revision": "cc19fd84e6a224e2e569cc62f1a6ff97",
+    "url": "/static/icons/ms-icon-144x144.png"
+  },
+  {
+    "revision": "dec21930a1a4f59520b5c55bff21dc6f",
+    "url": "/static/img/github-white.svg"
   },
   {
     "revision": "f98c9a7e4a6198c8c4c04ebdb106d6cd",
@@ -612,128 +616,124 @@ self.__precacheManifest = [
     "url": "/static/img/anna-palm-icon-circle.svg"
   },
   {
-    "revision": "de8c5ee9e2d58425c8bdb275aa03aa01",
-    "url": "/static/icons/ms-icon-70x70.png"
-  },
-  {
     "revision": "1c2724eb80a0c1db3ef11921705e2afd",
     "url": "/static/icons/ms-icon-150x150.png"
   },
   {
-    "revision": "cc19fd84e6a224e2e569cc62f1a6ff97",
-    "url": "/static/icons/ms-icon-144x144.png"
-  },
-  {
-    "revision": "51eee4c6a2cbff5e6d149f82d12699a2",
-    "url": "/static/icons/favicon-96x96.png"
-  },
-  {
-    "revision": "570eb83859dc23dd0eec423a49e147fe",
-    "url": "/static/iconfont/MaterialIcons-Regular.woff2"
-  },
-  {
-    "revision": "90a7b93bdd8acaa5cb221740e98415a0",
-    "url": "/static/icons/favicon-16x16.png"
+    "revision": "de8c5ee9e2d58425c8bdb275aa03aa01",
+    "url": "/static/icons/ms-icon-70x70.png"
   },
   {
     "revision": "653d077300a12f09a69caeea7a8947f8",
     "url": "/static/icons/browserconfig.xml"
   },
   {
-    "revision": "5d56cd775d49d9c86bc3c711db1b8717",
-    "url": "/static/img/anna-palm-icon-circle.png"
+    "revision": "4b6ff72f7ae842e59cc2f40cba35ff52",
+    "url": "/static/icons/apple-icon-57x57.png"
   },
   {
-    "revision": "470a8df97a2028ec9980f3c09e529d4d",
-    "url": "/static/css/spectre-exp.min.css"
+    "revision": "51eee4c6a2cbff5e6d149f82d12699a2",
+    "url": "/static/icons/favicon-96x96.png"
   },
   {
-    "revision": "3b6bcff2606149bcc489cb00729a1dc6",
-    "url": "/static/css/spectre.css"
+    "revision": "90a7b93bdd8acaa5cb221740e98415a0",
+    "url": "/static/icons/favicon-16x16.png"
   },
   {
-    "revision": "012cf6a10129e2275d79d6adac7f3b02",
-    "url": "/static/iconfont/MaterialIcons-Regular.woff"
+    "revision": "d765755b7bd60885245ab699a2dd77b3",
+    "url": "/static/icons/favicon-32x32.png"
+  },
+  {
+    "revision": "5729dc069431278b12e8100500dff158",
+    "url": "/static/img/imjoy-icon-white.png"
   },
   {
     "revision": "d4e4d1ebc40e5509feaf1715cb135f96",
     "url": "/static/icons/apple-icon-72x72.png"
   },
   {
-    "revision": "f25abb80b967186043c196bc022648f6",
-    "url": "/static/icons/apple-icon-76x76.png"
+    "revision": "a0e93a89173b2a0fc62b45edf5e8b4aa",
+    "url": "/static/img/imjoy-logo-black.svg"
+  },
+  {
+    "revision": "a69cb9dddcaa24d000d61a2a83328518",
+    "url": "/static/img/imjoy-io-icon.svg"
   },
   {
     "revision": "66e1572df15e1f7f64d1dad457af1743",
     "url": "/static/icons/apple-icon-60x60.png"
   },
   {
-    "revision": "77d9f96585bb42dcb73f56bc7cc594a4",
-    "url": "/static/icons/apple-icon.png"
-  },
-  {
-    "revision": "ed6a98d002bc0b535dd8618f3ae05fe7",
-    "url": "/static/iconfont/MaterialIcons-Regular.ijmap"
-  },
-  {
-    "revision": "4b6ff72f7ae842e59cc2f40cba35ff52",
-    "url": "/static/icons/apple-icon-57x57.png"
-  },
-  {
-    "revision": "77d9f96585bb42dcb73f56bc7cc594a4",
-    "url": "/static/icons/apple-icon-precomposed.png"
-  },
-  {
-    "revision": "cc19fd84e6a224e2e569cc62f1a6ff97",
-    "url": "/static/icons/apple-icon-144x144.png"
-  },
-  {
-    "revision": "552a2730b5ce83d66f7804ef2e3a1715",
-    "url": "/static/icons/apple-icon-114x114.png"
-  },
-  {
-    "revision": "46d69724e0b5e48b24e3c7ab12606d58",
-    "url": "/static/icons/apple-icon-120x120.png"
-  },
-  {
-    "revision": "51eee4c6a2cbff5e6d149f82d12699a2",
-    "url": "/static/icons/android-icon-96x96.png"
-  },
-  {
-    "revision": "d4e4d1ebc40e5509feaf1715cb135f96",
-    "url": "/static/icons/android-icon-72x72.png"
-  },
-  {
-    "revision": "1559010b7d933d24cb60bb9993e412b1",
-    "url": "/static/icons/android-icon-48x48.png"
-  },
-  {
-    "revision": "0580fd867305e330cffb8d6facd2465a",
-    "url": "/static/icons/android-icon-192x192.png"
-  },
-  {
-    "revision": "cc19fd84e6a224e2e569cc62f1a6ff97",
-    "url": "/static/icons/android-icon-144x144.png"
-  },
-  {
-    "revision": "a9d66b8c665a3d6c9dd0332e6420bf7b",
-    "url": "/static/img/anna-palm-icon-circle-animation.svg"
-  },
-  {
-    "revision": "93a616451a7267844b6ed06fde5c6ecf",
-    "url": "/static/icons/android-icon-36x36.png"
-  },
-  {
-    "revision": "146876126af00a90aae7f3dbb54b00cd",
-    "url": "/static/img/by.svg"
+    "revision": "f25abb80b967186043c196bc022648f6",
+    "url": "/static/icons/apple-icon-76x76.png"
   },
   {
     "revision": "74139811f0c508b3cbd5ea285c643950",
     "url": "/static/iconfont/README.md"
   },
   {
-    "revision": "075b8cf414d164345ac981e2da839d91",
-    "url": "/static/img/imjoy-card-plain.png"
+    "revision": "470a8df97a2028ec9980f3c09e529d4d",
+    "url": "/static/css/spectre-exp.min.css"
+  },
+  {
+    "revision": "edba2cda2b6fa6c55e9c7c336d2de3b4",
+    "url": "/static/icons/apple-icon-152x152.png"
+  },
+  {
+    "revision": "3b6bcff2606149bcc489cb00729a1dc6",
+    "url": "/static/css/spectre.css"
+  },
+  {
+    "revision": "570eb83859dc23dd0eec423a49e147fe",
+    "url": "/static/iconfont/MaterialIcons-Regular.woff2"
+  },
+  {
+    "revision": "46d69724e0b5e48b24e3c7ab12606d58",
+    "url": "/static/icons/apple-icon-120x120.png"
+  },
+  {
+    "revision": "552a2730b5ce83d66f7804ef2e3a1715",
+    "url": "/static/icons/apple-icon-114x114.png"
+  },
+  {
+    "revision": "51eee4c6a2cbff5e6d149f82d12699a2",
+    "url": "/static/icons/android-icon-96x96.png"
+  },
+  {
+    "revision": "cc19fd84e6a224e2e569cc62f1a6ff97",
+    "url": "/static/icons/android-icon-144x144.png"
+  },
+  {
+    "revision": "0580fd867305e330cffb8d6facd2465a",
+    "url": "/static/icons/android-icon-192x192.png"
+  },
+  {
+    "revision": "1559010b7d933d24cb60bb9993e412b1",
+    "url": "/static/icons/android-icon-48x48.png"
+  },
+  {
+    "revision": "d4e4d1ebc40e5509feaf1715cb135f96",
+    "url": "/static/icons/android-icon-72x72.png"
+  },
+  {
+    "revision": "93a616451a7267844b6ed06fde5c6ecf",
+    "url": "/static/icons/android-icon-36x36.png"
+  },
+  {
+    "revision": "fa67c88f243e4fa2ebd780ff36f34c97",
+    "url": "/static/css/spectre.min.css"
+  },
+  {
+    "revision": "cc19fd84e6a224e2e569cc62f1a6ff97",
+    "url": "/static/icons/apple-icon-144x144.png"
+  },
+  {
+    "revision": "ed6a98d002bc0b535dd8618f3ae05fe7",
+    "url": "/static/iconfont/MaterialIcons-Regular.ijmap"
+  },
+  {
+    "revision": "861b6ac15aeed39b13aa390a84045082",
+    "url": "/static/iconfont/codepoints"
   },
   {
     "revision": "a37b0c01c0baf1888ca812cc0508f6e2",
@@ -748,12 +748,12 @@ self.__precacheManifest = [
     "url": "/static/iconfont/material-icons.css"
   },
   {
-    "revision": "5729dc069431278b12e8100500dff158",
-    "url": "/static/img/imjoy-icon-white.png"
-  },
-  {
     "revision": "a1adea65594c502f9d9428f13ae210e1",
     "url": "/static/iconfont/MaterialIcons-Regular.svg"
+  },
+  {
+    "revision": "da4d6311a3ae413dbc4bec7fd939b3e8",
+    "url": "/static/css/spectre-exp.css"
   },
   {
     "revision": "8937d31b8e249a19b55f",

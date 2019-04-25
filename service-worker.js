@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.1b73a4353b6143639927f94f0792c3bd.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("/precache-manifest.fa4ef4538d3e6270eaa293949c223a82.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 if (workbox) {
     console.log(`Workbox is loaded`);
@@ -12,6 +12,7 @@ if (workbox) {
     });
     workbox.core.setCacheNameDetails({prefix: "ImJoy.io"});
     self.__precacheManifest = [
+      '_pluginWebIframe.js',
       '/manifest.json',
       'https://raw.githubusercontent.com/oeway/ImJoy-Plugins/master/manifest.imjoy.json',
       'https://raw.githubusercontent.com/oeway/ImJoy-Demo-Plugins/master/manifest.imjoy.json'
