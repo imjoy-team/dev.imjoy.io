@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.e82026e7d913748c447aa62a3bfa3718.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("/precache-manifest.d81eb204b26bfa14ada329f7bb4bb18c.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 if (workbox) {
     console.log(`Workbox is loaded`);
@@ -11,7 +11,14 @@ if (workbox) {
       debug: true
     });
     workbox.core.setCacheNameDetails({prefix: "ImJoy.io"});
-    self.__precacheManifest = [].concat(self.__precacheManifest || []);
+    self.__precacheManifest = [
+      '/static/jailed/_frame.js',
+      '/static/jailed/_frame.html',
+      '/static/jailed/_JailedSite.js',
+      '/manifest.json',
+      'https://raw.githubusercontent.com/oeway/ImJoy-Plugins/master/manifest.imjoy.json',
+      'https://raw.githubusercontent.com/oeway/ImJoy-Demo-Plugins/master/manifest.imjoy.json'
+    ].concat(self.__precacheManifest || []);
     workbox.precaching.suppressWarnings();
     workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
