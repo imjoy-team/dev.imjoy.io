@@ -264,8 +264,20 @@ self.__precacheManifest = [
     "url": "/static/vs/language/json/jsonMode.js"
   },
   {
+    "revision": "6c2e4bbc2f1390147bb8705f79cb58e7",
+    "url": "/static/vs/editor/editor.main.nls.js"
+  },
+  {
+    "revision": "a8fb0f322b584b488bd572adf086cdcd",
+    "url": "/static/vs/editor/editor.main.nls.fr.js"
+  },
+  {
     "revision": "2062c186031ecda7b3c52a7de847ddc7",
     "url": "/static/vs/editor/editor.main.nls.zh-tw.js"
+  },
+  {
+    "revision": "bb56d521fd9e0ac3bcb5c468907300ea",
+    "url": "/static/vs/editor/editor.main.nls.zh-cn.js"
   },
   {
     "revision": "a6a8191b3898b9a0ca4ee9d165c32d2e",
@@ -276,32 +288,20 @@ self.__precacheManifest = [
     "url": "/static/vs/editor/editor.main.nls.ko.js"
   },
   {
-    "revision": "bb56d521fd9e0ac3bcb5c468907300ea",
-    "url": "/static/vs/editor/editor.main.nls.zh-cn.js"
+    "revision": "65a437a349f6e024e14a84bdae3b94e5",
+    "url": "/static/vs/editor/editor.main.nls.es.js"
   },
   {
     "revision": "7c5522016f018c3226287c88363be05b",
     "url": "/static/vs/editor/editor.main.nls.ja.js"
   },
   {
-    "revision": "6c2e4bbc2f1390147bb8705f79cb58e7",
-    "url": "/static/vs/editor/editor.main.nls.js"
-  },
-  {
-    "revision": "6d0cbdd6e06c3e3c3eea8c05cf7918fa",
-    "url": "/static/vs/editor/editor.main.nls.it.js"
-  },
-  {
     "revision": "2b6ac4494944b92db7dcfa0ce3a605ed",
     "url": "/static/vs/editor/editor.main.nls.de.js"
   },
   {
-    "revision": "a8fb0f322b584b488bd572adf086cdcd",
-    "url": "/static/vs/editor/editor.main.nls.fr.js"
-  },
-  {
-    "revision": "65a437a349f6e024e14a84bdae3b94e5",
-    "url": "/static/vs/editor/editor.main.nls.es.js"
+    "revision": "6d0cbdd6e06c3e3c3eea8c05cf7918fa",
+    "url": "/static/vs/editor/editor.main.nls.it.js"
   },
   {
     "revision": "a14fcc89b2e121908c5cc7ec97787dfe",
@@ -324,40 +324,44 @@ self.__precacheManifest = [
     "url": "/static/vs/language/typescript/tsMode.js"
   },
   {
-    "revision": "90afcd78e12772f3abac47ce83714ea4",
-    "url": "/static/vs/basic-languages/redshift/redshift.js"
-  },
-  {
     "revision": "83f9d7a8568f0f86fd00bf3c21944ce8",
     "url": "/static/vs/basic-languages/ruby/ruby.js"
   },
   {
-    "revision": "f915a6c694e283873dd2e1b803dcfb56",
-    "url": "/static/vs/basic-languages/st/st.js"
+    "revision": "90afcd78e12772f3abac47ce83714ea4",
+    "url": "/static/vs/basic-languages/redshift/redshift.js"
   },
   {
-    "revision": "6e6537f8ecddb82826cff74cfa74ff09",
-    "url": "/static/vs/basic-languages/vb/vb.js"
-  },
-  {
-    "revision": "732551a7b9acbde0b0cbedb6649f85eb",
-    "url": "/static/vs/basic-languages/xml/xml.js"
-  },
-  {
-    "revision": "0fd4a6430117784fb44e2c59d4ad9b45",
-    "url": "/static/vs/basic-languages/yaml/yaml.js"
-  },
-  {
-    "revision": "bbbaa3026dfc4b11171a764cf70dd1da",
-    "url": "/static/vs/basic-languages/swift/swift.js"
+    "revision": "ce940bdd17ddab29ed4d630523a48aa8",
+    "url": "/static/vs/basic-languages/scss/scss.js"
   },
   {
     "revision": "bac7998456ed6017453ce7a6239d0aa7",
     "url": "/static/vs/basic-languages/typescript/typescript.js"
   },
   {
-    "revision": "ce940bdd17ddab29ed4d630523a48aa8",
-    "url": "/static/vs/basic-languages/scss/scss.js"
+    "revision": "bbbaa3026dfc4b11171a764cf70dd1da",
+    "url": "/static/vs/basic-languages/swift/swift.js"
+  },
+  {
+    "revision": "0fd4a6430117784fb44e2c59d4ad9b45",
+    "url": "/static/vs/basic-languages/yaml/yaml.js"
+  },
+  {
+    "revision": "732551a7b9acbde0b0cbedb6649f85eb",
+    "url": "/static/vs/basic-languages/xml/xml.js"
+  },
+  {
+    "revision": "6e6537f8ecddb82826cff74cfa74ff09",
+    "url": "/static/vs/basic-languages/vb/vb.js"
+  },
+  {
+    "revision": "f915a6c694e283873dd2e1b803dcfb56",
+    "url": "/static/vs/basic-languages/st/st.js"
+  },
+  {
+    "revision": "140e93934b5c72cee447d043f514be21",
+    "url": "/static/vs/basic-languages/rust/rust.js"
   },
   {
     "revision": "4ed77e76271ad4b2fd8e587e0a3892d9",
@@ -368,24 +372,20 @@ self.__precacheManifest = [
     "url": "/static/vs/basic-languages/scheme/scheme.js"
   },
   {
-    "revision": "140e93934b5c72cee447d043f514be21",
-    "url": "/static/vs/basic-languages/rust/rust.js"
+    "revision": "d89f8e23e929864846ab63beae060e70",
+    "url": "/static/vs/basic-languages/sb/sb.js"
   },
   {
     "revision": "f1db99b3f880c36fa487f96f37fcc7d2",
     "url": "/static/vs/basic-languages/apex/apex.js"
   },
   {
-    "revision": "90760425b1716d5a6bfc2fe688b65b9d",
-    "url": "/static/vs/basic-languages/azcli/azcli.js"
-  },
-  {
-    "revision": "d89f8e23e929864846ab63beae060e70",
-    "url": "/static/vs/basic-languages/sb/sb.js"
-  },
-  {
     "revision": "4edff85fd6c64e02f374ab7ee5f8b602",
     "url": "/static/vs/basic-languages/bat/bat.js"
+  },
+  {
+    "revision": "90760425b1716d5a6bfc2fe688b65b9d",
+    "url": "/static/vs/basic-languages/azcli/azcli.js"
   },
   {
     "revision": "a80cb9755dba76010fd552c8d3367797",
@@ -404,14 +404,6 @@ self.__precacheManifest = [
     "url": "/static/vs/basic-languages/csharp/csharp.js"
   },
   {
-    "revision": "06f213c5b340af360951b8ab0d07a4f2",
-    "url": "/static/vs/basic-languages/dockerfile/dockerfile.js"
-  },
-  {
-    "revision": "83a7b19bdc008a788551e4fe453ca0fa",
-    "url": "/static/vs/basic-languages/go/go.js"
-  },
-  {
     "revision": "27d46863c5d7d05c9f487bba74e106a0",
     "url": "/static/vs/basic-languages/css/css.js"
   },
@@ -420,16 +412,20 @@ self.__precacheManifest = [
     "url": "/static/vs/basic-languages/handlebars/handlebars.js"
   },
   {
-    "revision": "e76682ef8f4b2557e753aeac4ce6df1a",
-    "url": "/static/vs/basic-languages/fsharp/fsharp.js"
-  },
-  {
     "revision": "eaa375ad991e2dd79a645cc02600d51c",
     "url": "/static/vs/basic-languages/html/html.js"
   },
   {
-    "revision": "d38afb4a2727c22d145458825c210eee",
-    "url": "/static/vs/basic-languages/less/less.js"
+    "revision": "06f213c5b340af360951b8ab0d07a4f2",
+    "url": "/static/vs/basic-languages/dockerfile/dockerfile.js"
+  },
+  {
+    "revision": "e76682ef8f4b2557e753aeac4ce6df1a",
+    "url": "/static/vs/basic-languages/fsharp/fsharp.js"
+  },
+  {
+    "revision": "83a7b19bdc008a788551e4fe453ca0fa",
+    "url": "/static/vs/basic-languages/go/go.js"
   },
   {
     "revision": "8618cd52e61a015cb4fbdd890f4773a5",
@@ -440,6 +436,22 @@ self.__precacheManifest = [
     "url": "/static/vs/basic-languages/ini/ini.js"
   },
   {
+    "revision": "d38afb4a2727c22d145458825c210eee",
+    "url": "/static/vs/basic-languages/less/less.js"
+  },
+  {
+    "revision": "594f09e819d3632c0441c5787edd126d",
+    "url": "/static/vs/basic-languages/markdown/markdown.js"
+  },
+  {
+    "revision": "1ac0d1e51f549a643b2395f7aef440c1",
+    "url": "/static/vs/basic-languages/msdax/msdax.js"
+  },
+  {
+    "revision": "25d5426b0915297db94b8d2b7c35437c",
+    "url": "/static/vs/basic-languages/objective-c/objective-c.js"
+  },
+  {
     "revision": "2645b644f7e31880101cca552faf5e7b",
     "url": "/static/vs/basic-languages/java/java.js"
   },
@@ -448,28 +460,16 @@ self.__precacheManifest = [
     "url": "/static/vs/basic-languages/lua/lua.js"
   },
   {
-    "revision": "594f09e819d3632c0441c5787edd126d",
-    "url": "/static/vs/basic-languages/markdown/markdown.js"
-  },
-  {
-    "revision": "25d5426b0915297db94b8d2b7c35437c",
-    "url": "/static/vs/basic-languages/objective-c/objective-c.js"
-  },
-  {
-    "revision": "1ac0d1e51f549a643b2395f7aef440c1",
-    "url": "/static/vs/basic-languages/msdax/msdax.js"
-  },
-  {
     "revision": "9acad8ab8539f0e246aceed5e0f2b932",
     "url": "/static/vs/basic-languages/powershell/powershell.js"
   },
   {
-    "revision": "dfac870c87495c0f35ba304467696027",
-    "url": "/static/vs/basic-languages/python/python.js"
-  },
-  {
     "revision": "d5640717dc546aafcc787f05295b67c6",
     "url": "/static/vs/basic-languages/pug/pug.js"
+  },
+  {
+    "revision": "dfac870c87495c0f35ba304467696027",
+    "url": "/static/vs/basic-languages/python/python.js"
   },
   {
     "revision": "3280ee19a752f6d59079f279d3655fed",
@@ -484,16 +484,16 @@ self.__precacheManifest = [
     "url": "/static/vs/basic-languages/pgsql/pgsql.js"
   },
   {
+    "revision": "2c021e714b0737f3d5d9936ee75ccbed",
+    "url": "/static/vs/basic-languages/postiats/postiats.js"
+  },
+  {
     "revision": "b92c2339338153f248226b4fbdd625f8",
     "url": "/static/vs/basic-languages/razor/razor.js"
   },
   {
     "revision": "df479904e5ffca55c025b5486fa4eca6",
     "url": "/static/vs/basic-languages/php/php.js"
-  },
-  {
-    "revision": "2c021e714b0737f3d5d9936ee75ccbed",
-    "url": "/static/vs/basic-languages/postiats/postiats.js"
   },
   {
     "revision": "b350360c0374f8cd6b8d562e52902427",
@@ -516,8 +516,8 @@ self.__precacheManifest = [
     "url": "/static/img/imjoy-icon.png"
   },
   {
-    "revision": "a0e93a89173b2a0fc62b45edf5e8b4aa",
-    "url": "/static/img/imjoy-logo-black.svg"
+    "revision": "8e7b1b80a4458be8a27eac659447e42d",
+    "url": "/static/img/imjoy-logo-white.svg"
   },
   {
     "revision": "524db18624629ebed6788b26cbf4820e",
@@ -540,8 +540,8 @@ self.__precacheManifest = [
     "url": "/static/img/imjoy-io-icon.svg"
   },
   {
-    "revision": "8e7b1b80a4458be8a27eac659447e42d",
-    "url": "/static/img/imjoy-logo-white.svg"
+    "revision": "a0e93a89173b2a0fc62b45edf5e8b4aa",
+    "url": "/static/img/imjoy-logo-black.svg"
   },
   {
     "revision": "0c8de05e92e480a948f58cb8e808f67b",
@@ -560,16 +560,16 @@ self.__precacheManifest = [
     "url": "/static/img/loader.gif"
   },
   {
-    "revision": "fa51bbc451c987354e89",
-    "url": "/static/js/app.b6f66c73.js"
+    "revision": "818ce23ae6822ab7e5e5",
+    "url": "/static/js/app.9b605145.js"
   },
   {
-    "revision": "77d9f96585bb42dcb73f56bc7cc594a4",
-    "url": "/static/icons/apple-icon.png"
+    "revision": "edba2cda2b6fa6c55e9c7c336d2de3b4",
+    "url": "/static/icons/apple-icon-152x152.png"
   },
   {
-    "revision": "da4d6311a3ae413dbc4bec7fd939b3e8",
-    "url": "/static/css/spectre-exp.css"
+    "revision": "ed6a98d002bc0b535dd8618f3ae05fe7",
+    "url": "/static/iconfont/MaterialIcons-Regular.ijmap"
   },
   {
     "revision": "1dec602940683e2a243fc1af6b97bda8",
@@ -588,28 +588,32 @@ self.__precacheManifest = [
     "url": "/static/icons/apple-icon-180x180.png"
   },
   {
-    "revision": "fa67c88f243e4fa2ebd780ff36f34c97",
-    "url": "/static/css/spectre.min.css"
-  },
-  {
     "revision": "0cc69c2a860acde29e9411275ca4bb8d",
     "url": "/static/img/imjoy-icon-white.svg"
+  },
+  {
+    "revision": "5729dc069431278b12e8100500dff158",
+    "url": "/static/img/imjoy-icon-white.png"
   },
   {
     "revision": "f0d21da3f74ffbbcc644dafd7b957e57",
     "url": "/static/img/github.svg"
   },
   {
-    "revision": "dec21930a1a4f59520b5c55bff21dc6f",
-    "url": "/static/img/github-white.svg"
-  },
-  {
     "revision": "eba5bde7d6db21d95d41f4a717edf6de",
     "url": "/static/img/anna-palm-icon-circle.svg"
   },
   {
+    "revision": "dec21930a1a4f59520b5c55bff21dc6f",
+    "url": "/static/img/github-white.svg"
+  },
+  {
     "revision": "f98c9a7e4a6198c8c4c04ebdb106d6cd",
     "url": "/static/img/arrow.svg"
+  },
+  {
+    "revision": "570eb83859dc23dd0eec423a49e147fe",
+    "url": "/static/iconfont/MaterialIcons-Regular.woff2"
   },
   {
     "revision": "1c2724eb80a0c1db3ef11921705e2afd",
@@ -628,10 +632,6 @@ self.__precacheManifest = [
     "url": "/static/icons/favicon-96x96.png"
   },
   {
-    "revision": "570eb83859dc23dd0eec423a49e147fe",
-    "url": "/static/iconfont/MaterialIcons-Regular.woff2"
-  },
-  {
     "revision": "d765755b7bd60885245ab699a2dd77b3",
     "url": "/static/icons/favicon-32x32.png"
   },
@@ -644,16 +644,12 @@ self.__precacheManifest = [
     "url": "/static/img/anna-palm-icon-circle.png"
   },
   {
-    "revision": "470a8df97a2028ec9980f3c09e529d4d",
-    "url": "/static/css/spectre-exp.min.css"
+    "revision": "77d9f96585bb42dcb73f56bc7cc594a4",
+    "url": "/static/icons/apple-icon.png"
   },
   {
     "revision": "90a7b93bdd8acaa5cb221740e98415a0",
     "url": "/static/icons/favicon-16x16.png"
-  },
-  {
-    "revision": "012cf6a10129e2275d79d6adac7f3b02",
-    "url": "/static/iconfont/MaterialIcons-Regular.woff"
   },
   {
     "revision": "d4e4d1ebc40e5509feaf1715cb135f96",
@@ -664,72 +660,76 @@ self.__precacheManifest = [
     "url": "/static/icons/apple-icon-76x76.png"
   },
   {
+    "revision": "012cf6a10129e2275d79d6adac7f3b02",
+    "url": "/static/iconfont/MaterialIcons-Regular.woff"
+  },
+  {
     "revision": "66e1572df15e1f7f64d1dad457af1743",
     "url": "/static/icons/apple-icon-60x60.png"
+  },
+  {
+    "revision": "a1adea65594c502f9d9428f13ae210e1",
+    "url": "/static/iconfont/MaterialIcons-Regular.svg"
+  },
+  {
+    "revision": "c5941eed2e20a509114128aab1e96edf",
+    "url": "/static/iconfont/material-icons.css"
   },
   {
     "revision": "4b6ff72f7ae842e59cc2f40cba35ff52",
     "url": "/static/icons/apple-icon-57x57.png"
   },
   {
-    "revision": "ed6a98d002bc0b535dd8618f3ae05fe7",
-    "url": "/static/iconfont/MaterialIcons-Regular.ijmap"
-  },
-  {
-    "revision": "edba2cda2b6fa6c55e9c7c336d2de3b4",
-    "url": "/static/icons/apple-icon-152x152.png"
-  },
-  {
-    "revision": "51eee4c6a2cbff5e6d149f82d12699a2",
-    "url": "/static/icons/android-icon-96x96.png"
-  },
-  {
     "revision": "77d9f96585bb42dcb73f56bc7cc594a4",
     "url": "/static/icons/apple-icon-precomposed.png"
-  },
-  {
-    "revision": "552a2730b5ce83d66f7804ef2e3a1715",
-    "url": "/static/icons/apple-icon-114x114.png"
-  },
-  {
-    "revision": "cc19fd84e6a224e2e569cc62f1a6ff97",
-    "url": "/static/icons/apple-icon-144x144.png"
-  },
-  {
-    "revision": "0580fd867305e330cffb8d6facd2465a",
-    "url": "/static/icons/android-icon-192x192.png"
   },
   {
     "revision": "46d69724e0b5e48b24e3c7ab12606d58",
     "url": "/static/icons/apple-icon-120x120.png"
   },
   {
-    "revision": "1559010b7d933d24cb60bb9993e412b1",
-    "url": "/static/icons/android-icon-48x48.png"
+    "revision": "cc19fd84e6a224e2e569cc62f1a6ff97",
+    "url": "/static/icons/apple-icon-144x144.png"
+  },
+  {
+    "revision": "552a2730b5ce83d66f7804ef2e3a1715",
+    "url": "/static/icons/apple-icon-114x114.png"
+  },
+  {
+    "revision": "51eee4c6a2cbff5e6d149f82d12699a2",
+    "url": "/static/icons/android-icon-96x96.png"
   },
   {
     "revision": "d4e4d1ebc40e5509feaf1715cb135f96",
     "url": "/static/icons/android-icon-72x72.png"
   },
   {
-    "revision": "93a616451a7267844b6ed06fde5c6ecf",
-    "url": "/static/icons/android-icon-36x36.png"
+    "revision": "0580fd867305e330cffb8d6facd2465a",
+    "url": "/static/icons/android-icon-192x192.png"
   },
   {
-    "revision": "cc19fd84e6a224e2e569cc62f1a6ff97",
-    "url": "/static/icons/android-icon-144x144.png"
+    "revision": "1559010b7d933d24cb60bb9993e412b1",
+    "url": "/static/icons/android-icon-48x48.png"
   },
   {
     "revision": "a9d66b8c665a3d6c9dd0332e6420bf7b",
     "url": "/static/img/anna-palm-icon-circle-animation.svg"
   },
   {
-    "revision": "74139811f0c508b3cbd5ea285c643950",
-    "url": "/static/iconfont/README.md"
+    "revision": "cc19fd84e6a224e2e569cc62f1a6ff97",
+    "url": "/static/icons/android-icon-144x144.png"
+  },
+  {
+    "revision": "93a616451a7267844b6ed06fde5c6ecf",
+    "url": "/static/icons/android-icon-36x36.png"
   },
   {
     "revision": "146876126af00a90aae7f3dbb54b00cd",
     "url": "/static/img/by.svg"
+  },
+  {
+    "revision": "74139811f0c508b3cbd5ea285c643950",
+    "url": "/static/iconfont/README.md"
   },
   {
     "revision": "075b8cf414d164345ac981e2da839d91",
@@ -744,23 +744,23 @@ self.__precacheManifest = [
     "url": "/static/iconfont/MaterialIcons-Regular.eot"
   },
   {
-    "revision": "c5941eed2e20a509114128aab1e96edf",
-    "url": "/static/iconfont/material-icons.css"
+    "revision": "fa67c88f243e4fa2ebd780ff36f34c97",
+    "url": "/static/css/spectre.min.css"
   },
   {
-    "revision": "5729dc069431278b12e8100500dff158",
-    "url": "/static/img/imjoy-icon-white.png"
+    "revision": "470a8df97a2028ec9980f3c09e529d4d",
+    "url": "/static/css/spectre-exp.min.css"
   },
   {
-    "revision": "a1adea65594c502f9d9428f13ae210e1",
-    "url": "/static/iconfont/MaterialIcons-Regular.svg"
+    "revision": "da4d6311a3ae413dbc4bec7fd939b3e8",
+    "url": "/static/css/spectre-exp.css"
   },
   {
     "revision": "8937d31b8e249a19b55f",
     "url": "/static/css/chunk-vendors.e6d24365.css"
   },
   {
-    "revision": "fa51bbc451c987354e89",
+    "revision": "818ce23ae6822ab7e5e5",
     "url": "/static/css/app.a90f95f9.css"
   },
   {
@@ -768,7 +768,7 @@ self.__precacheManifest = [
     "url": "/robots.txt"
   },
   {
-    "revision": "f0a716e8aa5c18123f3ee72e358ffa52",
+    "revision": "38b4cd9b8f918bef410f75ee0946325c",
     "url": "/index.html"
   },
   {
