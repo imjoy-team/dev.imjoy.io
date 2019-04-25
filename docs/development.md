@@ -161,6 +161,7 @@ Defines the general properties of a plugin with several fields.
   "type": "web-worker",
   "tags": [],
   "ui": "image processing",
+  "cover": "",
   "version": "0.1.0",
   "api_version": "0.1.2",
   "url": "",
@@ -194,6 +195,16 @@ Points to current file. It is used to download the plugin when a user installs i
 
 #### description
 Contains a short description of the plugin.
+
+#### cover
+An url to a cover image of the plugin, it will shown up in the image installation dialog, and also on top of the plugin documentation.
+
+Example: `"cover":"https://imjoy.io/static/img/imjoy-card-plain.png"`.
+
+The cover image is recommended to have a aspect ratio of 16:9.
+It can be hosted inside the github repo, in that case, a `raw` url to the image should be used.
+
+Multiple images can be used, by set `cover` to an array: `"cover": ["url_to_image1", "url_to_image2", "url_to_image3"]`.
 
 #### tags
 List of supported tags.
@@ -358,7 +369,9 @@ Array with names of other ImJoy plugins which the current plugin depends on.
 They will be installed automatically during installation. To define a dependency use the following format: 1) for dependencies without tag `REPOSITORY:PLUGIN_NAME` or `PLUGIN_URL`, e.g.: `oeway/ImJoy-Plugins:Image Window`; 2) or with specified tag: `REPOSITORY:PLUGIN_NAME@TAG` or `PLUGIN_URL@TAG`, e.g.: `oeway/ImJoy-Plugins:Unet Segmentation@GPU`. In this case, a hash tag `GPU` is used to specify the tag for the plugin named `Unet Segmentation` hosted on GitHub repository `oeway/ImJoy-Plugin` (https://github.com/oeway/ImJoy-Plugins). If the plugin is not hosted on GitHub or the GitHub repository is not formatted as a ImJoy plugin repository (meaning there is no `manifest.imjoy.json` file defined in the root of the repository), you can use the url directly, e.g.: `https://github.com/oeway/ImJoy-Demo-Plugins/blob/master/repository/3dDemos.imjoy.html` (tags can be added with `@TAG`).
 
 #### defaults
-(**for window plugin only:**) defines an object of default values, for example you can specify the default window size by setting `"defaults": {"w": 10, "h": 7}`.
+(**for window plugin only:**) defines an object of default values. For example, you can specify the default window size by setting `"defaults": {"w": 10, "h": 7}`.
+
+To make the window in full size mode by default (as standalone window), you can set `"defaults": {"fullsize": true}`.
 
 #### runnable
 Defines whether the plugin can be executed by clicking on the plugin menu (By default, all plugins are `runnable`). For helper plugins which do not run by themselves, (e.g. a `native-python` plugin can be called by a `window` plugin and do not necessarily executed by the user directly), setting `"runnable": false` would move down the plugin to the bottom of the plugin menu and made non-clickable.
