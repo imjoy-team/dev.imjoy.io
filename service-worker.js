@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.4422948efeedbc5ed25c3dde3656b795.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("/precache-manifest.e82026e7d913748c447aa62a3bfa3718.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 if (workbox) {
     console.log(`Workbox is loaded`);
@@ -16,19 +16,30 @@ if (workbox) {
     workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
     workbox.routing.registerRoute(
+      new RegExp('/static/.*'),
+      new workbox.strategies.CacheFirst()
+    );
+
+    //communitations
+    workbox.routing.registerRoute(
       new RegExp('(http|https)://.*/socket.io/.*'),
       new workbox.strategies.NetworkOnly()
     );
 
     workbox.routing.registerRoute(
       new RegExp('https://static.imjoy.io/.*'),
-      new workbox.strategies.CacheFirst(),
+      new workbox.strategies.CacheFirst()
     );
 
     // manifest.imjoy.json etc.
     workbox.routing.registerRoute(
       new RegExp('https://raw.githubusercontent.com/.*'),
-      new workbox.strategies.NetworkFirst(),
+      new workbox.strategies.NetworkFirst()
+    );
+
+    workbox.routing.registerRoute(
+      new RegExp('https://gist.githubusercontent.com/.*'),
+      new workbox.strategies.NetworkFirst()
     );
 
     workbox.routing.setDefaultHandler(new workbox.strategies.NetworkOnly());
