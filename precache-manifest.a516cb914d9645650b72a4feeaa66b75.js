@@ -264,36 +264,32 @@ self.__precacheManifest = [
     "url": "/static/vs/language/json/jsonMode.js"
   },
   {
-    "revision": "2062c186031ecda7b3c52a7de847ddc7",
-    "url": "/static/vs/editor/editor.main.nls.zh-tw.js"
-  },
-  {
-    "revision": "bb56d521fd9e0ac3bcb5c468907300ea",
-    "url": "/static/vs/editor/editor.main.nls.zh-cn.js"
-  },
-  {
     "revision": "a6a8191b3898b9a0ca4ee9d165c32d2e",
     "url": "/static/vs/editor/editor.main.nls.ru.js"
-  },
-  {
-    "revision": "09e5a4cc32305727ff958438e4c3fad1",
-    "url": "/static/vs/editor/editor.main.nls.ko.js"
-  },
-  {
-    "revision": "6c2e4bbc2f1390147bb8705f79cb58e7",
-    "url": "/static/vs/editor/editor.main.nls.js"
   },
   {
     "revision": "7c5522016f018c3226287c88363be05b",
     "url": "/static/vs/editor/editor.main.nls.ja.js"
   },
   {
+    "revision": "09e5a4cc32305727ff958438e4c3fad1",
+    "url": "/static/vs/editor/editor.main.nls.ko.js"
+  },
+  {
+    "revision": "bb56d521fd9e0ac3bcb5c468907300ea",
+    "url": "/static/vs/editor/editor.main.nls.zh-cn.js"
+  },
+  {
+    "revision": "2062c186031ecda7b3c52a7de847ddc7",
+    "url": "/static/vs/editor/editor.main.nls.zh-tw.js"
+  },
+  {
     "revision": "6d0cbdd6e06c3e3c3eea8c05cf7918fa",
     "url": "/static/vs/editor/editor.main.nls.it.js"
   },
   {
-    "revision": "a8fb0f322b584b488bd572adf086cdcd",
-    "url": "/static/vs/editor/editor.main.nls.fr.js"
+    "revision": "6c2e4bbc2f1390147bb8705f79cb58e7",
+    "url": "/static/vs/editor/editor.main.nls.js"
   },
   {
     "revision": "65a437a349f6e024e14a84bdae3b94e5",
@@ -302,6 +298,10 @@ self.__precacheManifest = [
   {
     "revision": "2b6ac4494944b92db7dcfa0ce3a605ed",
     "url": "/static/vs/editor/editor.main.nls.de.js"
+  },
+  {
+    "revision": "a8fb0f322b584b488bd572adf086cdcd",
+    "url": "/static/vs/editor/editor.main.nls.fr.js"
   },
   {
     "revision": "a14fcc89b2e121908c5cc7ec97787dfe",
@@ -328,16 +328,16 @@ self.__precacheManifest = [
     "url": "/static/vs/basic-languages/yaml/yaml.js"
   },
   {
-    "revision": "732551a7b9acbde0b0cbedb6649f85eb",
-    "url": "/static/vs/basic-languages/xml/xml.js"
-  },
-  {
     "revision": "6e6537f8ecddb82826cff74cfa74ff09",
     "url": "/static/vs/basic-languages/vb/vb.js"
   },
   {
     "revision": "bac7998456ed6017453ce7a6239d0aa7",
     "url": "/static/vs/basic-languages/typescript/typescript.js"
+  },
+  {
+    "revision": "732551a7b9acbde0b0cbedb6649f85eb",
+    "url": "/static/vs/basic-languages/xml/xml.js"
   },
   {
     "revision": "bbbaa3026dfc4b11171a764cf70dd1da",
@@ -352,20 +352,20 @@ self.__precacheManifest = [
     "url": "/static/vs/basic-languages/shell/shell.js"
   },
   {
-    "revision": "56fa7723a00bdaeb74e0edc241fa9016",
-    "url": "/static/vs/basic-languages/scheme/scheme.js"
-  },
-  {
     "revision": "ce940bdd17ddab29ed4d630523a48aa8",
     "url": "/static/vs/basic-languages/scss/scss.js"
   },
   {
-    "revision": "d89f8e23e929864846ab63beae060e70",
-    "url": "/static/vs/basic-languages/sb/sb.js"
+    "revision": "56fa7723a00bdaeb74e0edc241fa9016",
+    "url": "/static/vs/basic-languages/scheme/scheme.js"
   },
   {
     "revision": "140e93934b5c72cee447d043f514be21",
     "url": "/static/vs/basic-languages/rust/rust.js"
+  },
+  {
+    "revision": "d89f8e23e929864846ab63beae060e70",
+    "url": "/static/vs/basic-languages/sb/sb.js"
   },
   {
     "revision": "a80cb9755dba76010fd552c8d3367797",
@@ -384,8 +384,8 @@ self.__precacheManifest = [
     "url": "/static/vs/basic-languages/bat/bat.js"
   },
   {
-    "revision": "83f9d7a8568f0f86fd00bf3c21944ce8",
-    "url": "/static/vs/basic-languages/ruby/ruby.js"
+    "revision": "90afcd78e12772f3abac47ce83714ea4",
+    "url": "/static/vs/basic-languages/redshift/redshift.js"
   },
   {
     "revision": "e8ac253b87716ca5827e231b0bf56df8",
@@ -396,12 +396,12 @@ self.__precacheManifest = [
     "url": "/static/js/chunk-2d0aab07.b055a499.js"
   },
   {
-    "revision": "e170e435b67b7f9a45d69ce4bdfeaa05",
-    "url": "/static/vs/basic-languages/csharp/csharp.js"
-  },
-  {
     "revision": "3d896c0dfc1a9d7da060cd06dcbf0dff",
     "url": "/static/vs/basic-languages/csp/csp.js"
+  },
+  {
+    "revision": "e170e435b67b7f9a45d69ce4bdfeaa05",
+    "url": "/static/vs/basic-languages/csharp/csharp.js"
   },
   {
     "revision": "27d46863c5d7d05c9f487bba74e106a0",
@@ -420,6 +420,10 @@ self.__precacheManifest = [
     "url": "/static/vs/basic-languages/go/go.js"
   },
   {
+    "revision": "eaa375ad991e2dd79a645cc02600d51c",
+    "url": "/static/vs/basic-languages/html/html.js"
+  },
+  {
     "revision": "741948277b00c3dbdaf2c48c3b4b21c8",
     "url": "/static/vs/basic-languages/handlebars/handlebars.js"
   },
@@ -428,16 +432,12 @@ self.__precacheManifest = [
     "url": "/static/vs/basic-languages/ini/ini.js"
   },
   {
-    "revision": "eaa375ad991e2dd79a645cc02600d51c",
-    "url": "/static/vs/basic-languages/html/html.js"
+    "revision": "8618cd52e61a015cb4fbdd890f4773a5",
+    "url": "/static/vs/basic-languages/javascript/javascript.js"
   },
   {
     "revision": "2645b644f7e31880101cca552faf5e7b",
     "url": "/static/vs/basic-languages/java/java.js"
-  },
-  {
-    "revision": "8618cd52e61a015cb4fbdd890f4773a5",
-    "url": "/static/vs/basic-languages/javascript/javascript.js"
   },
   {
     "revision": "59508c8afefbc43b359c085d36c696d0",
@@ -448,16 +448,16 @@ self.__precacheManifest = [
     "url": "/static/vs/basic-languages/less/less.js"
   },
   {
-    "revision": "1ac0d1e51f549a643b2395f7aef440c1",
-    "url": "/static/vs/basic-languages/msdax/msdax.js"
-  },
-  {
     "revision": "594f09e819d3632c0441c5787edd126d",
     "url": "/static/vs/basic-languages/markdown/markdown.js"
   },
   {
     "revision": "25d5426b0915297db94b8d2b7c35437c",
     "url": "/static/vs/basic-languages/objective-c/objective-c.js"
+  },
+  {
+    "revision": "1ac0d1e51f549a643b2395f7aef440c1",
+    "url": "/static/vs/basic-languages/msdax/msdax.js"
   },
   {
     "revision": "9acad8ab8539f0e246aceed5e0f2b932",
@@ -480,8 +480,8 @@ self.__precacheManifest = [
     "url": "/static/vs/basic-languages/redis/redis.js"
   },
   {
-    "revision": "90afcd78e12772f3abac47ce83714ea4",
-    "url": "/static/vs/basic-languages/redshift/redshift.js"
+    "revision": "83f9d7a8568f0f86fd00bf3c21944ce8",
+    "url": "/static/vs/basic-languages/ruby/ruby.js"
   },
   {
     "revision": "b92c2339338153f248226b4fbdd625f8",
@@ -496,12 +496,12 @@ self.__precacheManifest = [
     "url": "/static/vs/basic-languages/php/php.js"
   },
   {
-    "revision": "ead1f6c7a8bef73c6743a728d8e1ae13",
-    "url": "/static/vs/basic-languages/perl/perl.js"
-  },
-  {
     "revision": "b350360c0374f8cd6b8d562e52902427",
     "url": "/static/vs/basic-languages/mysql/mysql.js"
+  },
+  {
+    "revision": "ead1f6c7a8bef73c6743a728d8e1ae13",
+    "url": "/static/vs/basic-languages/perl/perl.js"
   },
   {
     "revision": "2ecf3be124889402c08b4419e7d6db04",
@@ -532,12 +532,12 @@ self.__precacheManifest = [
     "url": "/static/img/imjoy-logo-black.png"
   },
   {
-    "revision": "a69cb9dddcaa24d000d61a2a83328518",
-    "url": "/static/img/imjoy-io-icon.svg"
-  },
-  {
     "revision": "b8859e2632feade2aed6",
     "url": "/static/js/chunk-2d0a3577.39e7cf1b.js"
+  },
+  {
+    "revision": "a69cb9dddcaa24d000d61a2a83328518",
+    "url": "/static/img/imjoy-io-icon.svg"
   },
   {
     "revision": "a0e93a89173b2a0fc62b45edf5e8b4aa",
@@ -548,12 +548,12 @@ self.__precacheManifest = [
     "url": "/static/img/loader.gif"
   },
   {
-    "revision": "16807525e4cec3b81a9c",
-    "url": "/static/js/app.d0114974.js"
-  },
-  {
     "revision": "0c8de05e92e480a948f58cb8e808f67b",
     "url": "/static/img/imjoy-icon.svg"
+  },
+  {
+    "revision": "7fbf3fa93dfe6a727ffa",
+    "url": "/static/js/app.aced9cb3.js"
   },
   {
     "revision": "2ac2d65c948103772206c3906fe78b11",
@@ -588,12 +588,16 @@ self.__precacheManifest = [
     "url": "/static/img/imjoy-icon-white.svg"
   },
   {
+    "revision": "f0d21da3f74ffbbcc644dafd7b957e57",
+    "url": "/static/img/github.svg"
+  },
+  {
     "revision": "dec21930a1a4f59520b5c55bff21dc6f",
     "url": "/static/img/github-white.svg"
   },
   {
-    "revision": "f0d21da3f74ffbbcc644dafd7b957e57",
-    "url": "/static/img/github.svg"
+    "revision": "eba5bde7d6db21d95d41f4a717edf6de",
+    "url": "/static/img/anna-palm-icon-circle.svg"
   },
   {
     "revision": "f98c9a7e4a6198c8c4c04ebdb106d6cd",
@@ -602,10 +606,6 @@ self.__precacheManifest = [
   {
     "revision": "146876126af00a90aae7f3dbb54b00cd",
     "url": "/static/img/by.svg"
-  },
-  {
-    "revision": "eba5bde7d6db21d95d41f4a717edf6de",
-    "url": "/static/img/anna-palm-icon-circle.svg"
   },
   {
     "revision": "a9d66b8c665a3d6c9dd0332e6420bf7b",
@@ -620,100 +620,24 @@ self.__precacheManifest = [
     "url": "/static/img/anna-palm-icon-circle.png"
   },
   {
-    "revision": "1559010b7d933d24cb60bb9993e412b1",
-    "url": "/static/icons/android-icon-48x48.png"
-  },
-  {
-    "revision": "cc19fd84e6a224e2e569cc62f1a6ff97",
-    "url": "/static/icons/ms-icon-144x144.png"
-  },
-  {
-    "revision": "1c2724eb80a0c1db3ef11921705e2afd",
-    "url": "/static/icons/ms-icon-150x150.png"
-  },
-  {
-    "revision": "93a616451a7267844b6ed06fde5c6ecf",
-    "url": "/static/icons/android-icon-36x36.png"
-  },
-  {
-    "revision": "90a7b93bdd8acaa5cb221740e98415a0",
-    "url": "/static/icons/favicon-16x16.png"
-  },
-  {
-    "revision": "d765755b7bd60885245ab699a2dd77b3",
-    "url": "/static/icons/favicon-32x32.png"
+    "revision": "0580fd867305e330cffb8d6facd2465a",
+    "url": "/static/icons/android-icon-192x192.png"
   },
   {
     "revision": "51eee4c6a2cbff5e6d149f82d12699a2",
     "url": "/static/icons/favicon-96x96.png"
   },
   {
-    "revision": "0580fd867305e330cffb8d6facd2465a",
-    "url": "/static/icons/android-icon-192x192.png"
-  },
-  {
-    "revision": "f25abb80b967186043c196bc022648f6",
-    "url": "/static/icons/apple-icon-76x76.png"
-  },
-  {
-    "revision": "77d9f96585bb42dcb73f56bc7cc594a4",
-    "url": "/static/icons/apple-icon-precomposed.png"
-  },
-  {
-    "revision": "74139811f0c508b3cbd5ea285c643950",
-    "url": "/static/iconfont/README.md"
-  },
-  {
-    "revision": "4b6ff72f7ae842e59cc2f40cba35ff52",
-    "url": "/static/icons/apple-icon-57x57.png"
-  },
-  {
-    "revision": "66e1572df15e1f7f64d1dad457af1743",
-    "url": "/static/icons/apple-icon-60x60.png"
-  },
-  {
-    "revision": "d4e4d1ebc40e5509feaf1715cb135f96",
-    "url": "/static/icons/apple-icon-72x72.png"
-  },
-  {
-    "revision": "861b6ac15aeed39b13aa390a84045082",
-    "url": "/static/iconfont/codepoints"
-  },
-  {
-    "revision": "edba2cda2b6fa6c55e9c7c336d2de3b4",
-    "url": "/static/icons/apple-icon-152x152.png"
-  },
-  {
-    "revision": "4efc4b6b32a094bfb5aaccbbff3ea510",
-    "url": "/static/icons/apple-icon-180x180.png"
-  },
-  {
-    "revision": "a37b0c01c0baf1888ca812cc0508f6e2",
-    "url": "/static/iconfont/MaterialIcons-Regular.ttf"
-  },
-  {
-    "revision": "d4e4d1ebc40e5509feaf1715cb135f96",
-    "url": "/static/icons/android-icon-72x72.png"
-  },
-  {
-    "revision": "51eee4c6a2cbff5e6d149f82d12699a2",
-    "url": "/static/icons/android-icon-96x96.png"
-  },
-  {
-    "revision": "552a2730b5ce83d66f7804ef2e3a1715",
-    "url": "/static/icons/apple-icon-114x114.png"
-  },
-  {
-    "revision": "46d69724e0b5e48b24e3c7ab12606d58",
-    "url": "/static/icons/apple-icon-120x120.png"
+    "revision": "1c2724eb80a0c1db3ef11921705e2afd",
+    "url": "/static/icons/ms-icon-150x150.png"
   },
   {
     "revision": "cc19fd84e6a224e2e569cc62f1a6ff97",
-    "url": "/static/icons/apple-icon-144x144.png"
+    "url": "/static/icons/ms-icon-144x144.png"
   },
   {
-    "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
-    "url": "/robots.txt"
+    "revision": "cc19fd84e6a224e2e569cc62f1a6ff97",
+    "url": "/static/icons/android-icon-144x144.png"
   },
   {
     "revision": "570eb83859dc23dd0eec423a49e147fe",
@@ -724,32 +648,104 @@ self.__precacheManifest = [
     "url": "/static/iconfont/material-icons.css"
   },
   {
+    "revision": "f25abb80b967186043c196bc022648f6",
+    "url": "/static/icons/apple-icon-76x76.png"
+  },
+  {
+    "revision": "d4e4d1ebc40e5509feaf1715cb135f96",
+    "url": "/static/icons/apple-icon-72x72.png"
+  },
+  {
+    "revision": "66e1572df15e1f7f64d1dad457af1743",
+    "url": "/static/icons/apple-icon-60x60.png"
+  },
+  {
+    "revision": "552a2730b5ce83d66f7804ef2e3a1715",
+    "url": "/static/icons/apple-icon-114x114.png"
+  },
+  {
+    "revision": "77d9f96585bb42dcb73f56bc7cc594a4",
+    "url": "/static/icons/apple-icon-precomposed.png"
+  },
+  {
+    "revision": "861b6ac15aeed39b13aa390a84045082",
+    "url": "/static/iconfont/codepoints"
+  },
+  {
+    "revision": "4b6ff72f7ae842e59cc2f40cba35ff52",
+    "url": "/static/icons/apple-icon-57x57.png"
+  },
+  {
+    "revision": "edba2cda2b6fa6c55e9c7c336d2de3b4",
+    "url": "/static/icons/apple-icon-152x152.png"
+  },
+  {
+    "revision": "51eee4c6a2cbff5e6d149f82d12699a2",
+    "url": "/static/icons/android-icon-96x96.png"
+  },
+  {
     "revision": "cc19fd84e6a224e2e569cc62f1a6ff97",
-    "url": "/static/icons/android-icon-144x144.png"
+    "url": "/static/icons/apple-icon-144x144.png"
   },
   {
-    "revision": "d41d8cd98f00b204e9800998ecf8427e",
-    "url": "/.nojekyll"
+    "revision": "46d69724e0b5e48b24e3c7ab12606d58",
+    "url": "/static/icons/apple-icon-120x120.png"
   },
   {
-    "revision": "012cf6a10129e2275d79d6adac7f3b02",
-    "url": "/static/iconfont/MaterialIcons-Regular.woff"
+    "revision": "d4e4d1ebc40e5509feaf1715cb135f96",
+    "url": "/static/icons/android-icon-72x72.png"
   },
   {
-    "revision": "a1adea65594c502f9d9428f13ae210e1",
-    "url": "/static/iconfont/MaterialIcons-Regular.svg"
+    "revision": "d765755b7bd60885245ab699a2dd77b3",
+    "url": "/static/icons/favicon-32x32.png"
   },
   {
-    "revision": "ed6a98d002bc0b535dd8618f3ae05fe7",
-    "url": "/static/iconfont/MaterialIcons-Regular.ijmap"
+    "revision": "1559010b7d933d24cb60bb9993e412b1",
+    "url": "/static/icons/android-icon-48x48.png"
+  },
+  {
+    "revision": "4efc4b6b32a094bfb5aaccbbff3ea510",
+    "url": "/static/icons/apple-icon-180x180.png"
+  },
+  {
+    "revision": "93a616451a7267844b6ed06fde5c6ecf",
+    "url": "/static/icons/android-icon-36x36.png"
+  },
+  {
+    "revision": "90a7b93bdd8acaa5cb221740e98415a0",
+    "url": "/static/icons/favicon-16x16.png"
+  },
+  {
+    "revision": "74139811f0c508b3cbd5ea285c643950",
+    "url": "/static/iconfont/README.md"
+  },
+  {
+    "revision": "3f48374e22408fdad37aed08b9ef2d06",
+    "url": "/404.html"
+  },
+  {
+    "revision": "fa67c88f243e4fa2ebd780ff36f34c97",
+    "url": "/static/css/spectre.min.css"
+  },
+  {
+    "revision": "a37b0c01c0baf1888ca812cc0508f6e2",
+    "url": "/static/iconfont/MaterialIcons-Regular.ttf"
   },
   {
     "revision": "e79bfd88537def476913f3ed52f4f4b3",
     "url": "/static/iconfont/MaterialIcons-Regular.eot"
   },
   {
-    "revision": "fa67c88f243e4fa2ebd780ff36f34c97",
-    "url": "/static/css/spectre.min.css"
+    "revision": "012cf6a10129e2275d79d6adac7f3b02",
+    "url": "/static/iconfont/MaterialIcons-Regular.woff"
+  },
+  {
+    "revision": "ed6a98d002bc0b535dd8618f3ae05fe7",
+    "url": "/static/iconfont/MaterialIcons-Regular.ijmap"
+  },
+  {
+    "revision": "a1adea65594c502f9d9428f13ae210e1",
+    "url": "/static/iconfont/MaterialIcons-Regular.svg"
   },
   {
     "revision": "470a8df97a2028ec9980f3c09e529d4d",
@@ -760,15 +756,19 @@ self.__precacheManifest = [
     "url": "/static/css/chunk-vendors.e6d24365.css"
   },
   {
-    "revision": "16807525e4cec3b81a9c",
-    "url": "/static/css/app.95609ca2.css"
+    "revision": "7fbf3fa93dfe6a727ffa",
+    "url": "/static/css/app.c5f055be.css"
   },
   {
-    "revision": "af3fdf70513742636e0e4d71d5e83bd3",
+    "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
+    "url": "/robots.txt"
+  },
+  {
+    "revision": "cc4b8fc833db55d3f23555a9dd0c2c35",
     "url": "/index.html"
   },
   {
-    "revision": "3f48374e22408fdad37aed08b9ef2d06",
-    "url": "/404.html"
+    "revision": "d41d8cd98f00b204e9800998ecf8427e",
+    "url": "/.nojekyll"
   }
 ];

@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.ef659c0474f55999520075494b460f99.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("/precache-manifest.a516cb914d9645650b72a4feeaa66b75.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 /* eslint-disable */
 
@@ -10,24 +10,19 @@ if (workbox) {
      * See https://goo.gl/S9QRab
      */
 
-    // workbox.setConfig({
-    //   debug: true
-    // });
+    workbox.setConfig({
+      debug: true
+    });
 
     workbox.core.setCacheNameDetails({prefix: "ImJoy.io"});
-    self.__precacheManifest = [
-      '_pluginWebIframe.js',
-      '/manifest.json',
-      'https://raw.githubusercontent.com/oeway/ImJoy-Plugins/master/manifest.imjoy.json',
-      'https://raw.githubusercontent.com/oeway/ImJoy-Demo-Plugins/master/manifest.imjoy.json'
-    ].concat(self.__precacheManifest || []);
+    self.__precacheManifest = self.__precacheManifest || [];
 
     workbox.precaching.suppressWarnings();
     workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
     workbox.routing.registerRoute(
       new RegExp('/static/.*'),
-      new workbox.strategies.CacheFirst()
+      new workbox.strategies.NetworkFirst()
     );
 
     //communitations
@@ -38,7 +33,7 @@ if (workbox) {
 
     workbox.routing.registerRoute(
       new RegExp('https://static.imjoy.io/.*'),
-      new workbox.strategies.CacheFirst()
+      new workbox.strategies.NetworkFirst()
     );
 
     // manifest.imjoy.json etc.
