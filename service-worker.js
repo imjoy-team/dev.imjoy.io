@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.2b5e29de8126c47df2a1ca5e4de04a7b.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/precache-manifest.825d00b3ca424d34b1119b937eab03c7.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 /* eslint-disable */
 
@@ -91,9 +91,9 @@ if (workbox) {
     new workbox.strategies.StaleWhileRevalidate()
   );
 
-  var plugin_requirements = new Set();
+  var cached_keys = new Set();
   function matchCb(request) {
-    return plugin_requirements.has(request.url.href);
+    return cached_keys.has(request.url.href);
   }
 
   workbox.routing.registerRoute(
@@ -108,8 +108,8 @@ if (workbox) {
       var urls = requests.map(function(request) {
         return request.url;
       });
-      plugin_requirements = new Set(urls);
-      console.log("cached requirements:", plugin_requirements);
+      cached_keys = new Set(urls);
+      console.log("cached requirements:", cached_keys);
     });
   });
 
@@ -160,7 +160,7 @@ if (workbox) {
             var request = new Request(event.data.url);
             fetch(request)
               .then(function(response) {
-                plugin_requirements.add(event.data.url);
+                cached_keys.add(event.data.url);
                 console.log("Caching requirement: " + event.data.url);
                 cache.put(event.data.url, response).then(resolve).catch(reject);
               })
@@ -171,7 +171,7 @@ if (workbox) {
             break;
           // This command removes a request/response pair from the cache (assuming it exists).
           case "delete":
-            plugin_requirements.delete(event.data.url);
+            cached_keys.delete(event.data.url);
             cache.delete(event.data.url).then(function(success) {
               if(success){
                 resolve()
