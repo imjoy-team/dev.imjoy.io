@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.825d00b3ca424d34b1119b937eab03c7.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/precache-manifest.e8699b6d5dbe65e7aa517bbfc2c60d6d.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 /* eslint-disable */
 
@@ -11,14 +11,14 @@ if (workbox) {
    */
 
   workbox.setConfig({
-    debug: true,
+    debug: false,
   });
 
   const removeQuery = {
-    cacheKeyWillBeUsed: ({request}) => {
+    cacheKeyWillBeUsed: ({ request }) => {
       const newUrl = new URL(request.url);
-      newUrl.search = '';
-      newUrl.hash = '';
+      newUrl.search = "";
+      newUrl.hash = "";
       return newUrl.href;
     },
   };
@@ -61,18 +61,18 @@ if (workbox) {
 
   workbox.routing.registerRoute(
     new RegExp("https://imjoy-team.github.io/.*"),
-    new workbox.strategies.NetworkFirst({plugins: [removeQuery]})
+    new workbox.strategies.NetworkFirst({ plugins: [removeQuery] })
   );
 
   // manifest.imjoy.json etc.
   workbox.routing.registerRoute(
     new RegExp("https://raw.githubusercontent.com/.*"),
-    new workbox.strategies.NetworkFirst({plugins: [removeQuery]})
+    new workbox.strategies.NetworkFirst({ plugins: [removeQuery] })
   );
 
   workbox.routing.registerRoute(
     new RegExp("https://gist.githubusercontent.com/.*"),
-    new workbox.strategies.NetworkFirst({plugins: [removeQuery]})
+    new workbox.strategies.NetworkFirst({ plugins: [removeQuery] })
   );
 
   // badges
@@ -83,7 +83,7 @@ if (workbox) {
 
   workbox.routing.registerRoute(
     new RegExp("https://github.com/imjoy-team/ImJoy/.*"),
-    new workbox.strategies.NetworkFirst({plugins: [removeQuery]})
+    new workbox.strategies.NetworkFirst({ plugins: [removeQuery] })
   );
 
   workbox.routing.registerRoute(
@@ -118,27 +118,25 @@ if (workbox) {
     if (event.data && event.data.command) {
       // Use the Cache Storage API directly,
       // and add to the default runtime cache:
-      var resolve = function(result){
-        event.ports[0].postMessage({result: result});
-      }
-      var reject = function(error){
-        event.ports[0].postMessage({error: error});
-      }
+      var resolve = function(result) {
+        event.ports[0].postMessage({ result: result });
+      };
+      var reject = function(error) {
+        event.ports[0].postMessage({ error: error });
+      };
 
       caches.open(workbox.core.cacheNames.runtime).then(function(cache) {
         switch (event.data.command) {
           // This command returns a list of the URLs corresponding to the Request objects
           // that serve as keys for the current cache.
           case "keys":
-            cache
-              .keys()
-              .then(function(requests) {
-                var urls = requests.map(function(request) {
-                  return request.url;
-                });
+            cache.keys().then(function(requests) {
+              var urls = requests.map(function(request) {
+                return request.url;
+              });
 
-                resolve(urls.sort());
-              })
+              resolve(urls.sort());
+            });
             break;
           // This command adds a new request/response pair to the cache.
           case "add":
@@ -162,22 +160,24 @@ if (workbox) {
               .then(function(response) {
                 cached_keys.add(event.data.url);
                 console.log("Caching requirement: " + event.data.url);
-                cache.put(event.data.url, response).then(resolve).catch(reject);
+                cache
+                  .put(event.data.url, response)
+                  .then(resolve)
+                  .catch(reject);
               })
               .catch(function(e) {
-                console.error('Failed to cache requirement: ' + event.data.url)
-                reject(e)
+                console.error("Failed to cache requirement: " + event.data.url);
+                reject(e);
               });
             break;
           // This command removes a request/response pair from the cache (assuming it exists).
           case "delete":
             cached_keys.delete(event.data.url);
             cache.delete(event.data.url).then(function(success) {
-              if(success){
-                resolve()
-              }
-              else{
-                reject("Item was not found in the cache.")
+              if (success) {
+                resolve();
+              } else {
+                reject("Item was not found in the cache.");
               }
             });
             break;
@@ -188,7 +188,6 @@ if (workbox) {
       });
     }
   });
-  
 } else {
   console.log(`Workbox didn't load`);
 }
