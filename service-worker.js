@@ -11,8 +11,17 @@ if (workbox) {
    */
 
   workbox.setConfig({
-    debug: true
+    debug: true,
   });
+
+  const removeQuery = {
+    cacheKeyWillBeUsed: ({request}) => {
+      const newUrl = new URL(request.url);
+      newUrl.search = '';
+      newUrl.hash = '';
+      return newUrl.href;
+    },
+  };
 
   workbox.core.setCacheNameDetails({ prefix: "ImJoy.io" });
   self.__precacheManifest = self.__precacheManifest || [];
@@ -52,18 +61,18 @@ if (workbox) {
 
   workbox.routing.registerRoute(
     new RegExp("https://imjoy-team.github.io/.*"),
-    new workbox.strategies.NetworkFirst()
+    new workbox.strategies.NetworkFirst({plugins: [removeQuery]})
   );
 
   // manifest.imjoy.json etc.
   workbox.routing.registerRoute(
     new RegExp("https://raw.githubusercontent.com/.*"),
-    new workbox.strategies.NetworkFirst()
+    new workbox.strategies.NetworkFirst({plugins: [removeQuery]})
   );
 
   workbox.routing.registerRoute(
     new RegExp("https://gist.githubusercontent.com/.*"),
-    new workbox.strategies.NetworkFirst()
+    new workbox.strategies.NetworkFirst({plugins: [removeQuery]})
   );
 
   // badges
@@ -74,7 +83,7 @@ if (workbox) {
 
   workbox.routing.registerRoute(
     new RegExp("https://github.com/imjoy-team/ImJoy/.*"),
-    new workbox.strategies.NetworkFirst()
+    new workbox.strategies.NetworkFirst({plugins: [removeQuery]})
   );
 
   workbox.routing.registerRoute(
