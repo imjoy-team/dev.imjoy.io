@@ -91,11 +91,104 @@ if (workbox) {
     new workbox.strategies.StaleWhileRevalidate()
   );
 
+  var plugin_requirements = new Set();
+  function matchCb(request) {
+    return plugin_requirements.has(request.url.href);
+  }
+
+  workbox.routing.registerRoute(
+    matchCb,
+    new workbox.strategies.StaleWhileRevalidate()
+  );
+
   workbox.routing.setDefaultHandler(new workbox.strategies.NetworkOnly());
 
-  self.addEventListener("message", e => {
-    if (e.data.action == "skipWaiting") self.skipWaiting();
+  caches.open(workbox.core.cacheNames.runtime).then(function(cache) {
+    cache.keys().then(function(requests) {
+      var urls = requests.map(function(request) {
+        return request.url;
+      });
+      plugin_requirements = new Set(urls);
+      console.log("cached requirements:", plugin_requirements);
+    });
   });
+
+  self.addEventListener("message", function(event) {
+    if (event.data.action == "skipWaiting") self.skipWaiting();
+    if (event.data && event.data.command) {
+      // Use the Cache Storage API directly,
+      // and add to the default runtime cache:
+      var resolve = function(result){
+        event.ports[0].postMessage({result: result});
+      }
+      var reject = function(error){
+        event.ports[0].postMessage({error: error});
+      }
+
+      caches.open(workbox.core.cacheNames.runtime).then(function(cache) {
+        switch (event.data.command) {
+          // This command returns a list of the URLs corresponding to the Request objects
+          // that serve as keys for the current cache.
+          case "keys":
+            cache
+              .keys()
+              .then(function(requests) {
+                var urls = requests.map(function(request) {
+                  return request.url;
+                });
+
+                resolve(urls.sort());
+              })
+            break;
+          // This command adds a new request/response pair to the cache.
+          case "add":
+            // If event.data.url isn't a valid URL, new Request() will throw a TypeError which will be handled
+            // by the outer .catch().
+
+            // do not cache localhost requests
+            var hostname = new URL(event.data.url).hostname;
+            if (
+              !hostname ||
+              hostname === "localhost" ||
+              hostname === "127.0.0.1"
+            ) {
+              console.log("Skip caching local file " + event.data.url);
+              resolve();
+              return;
+            }
+
+            var request = new Request(event.data.url);
+            fetch(request)
+              .then(function(response) {
+                plugin_requirements.add(event.data.url);
+                console.log("Caching requirement: " + event.data.url);
+                cache.put(event.data.url, response).then(resolve).catch(reject);
+              })
+              .catch(function(e) {
+                console.error('Failed to cache requirement: ' + event.data.url)
+                reject(e)
+              });
+            break;
+          // This command removes a request/response pair from the cache (assuming it exists).
+          case "delete":
+            plugin_requirements.delete(event.data.url);
+            cache.delete(event.data.url).then(function(success) {
+              if(success){
+                resolve()
+              }
+              else{
+                reject("Item was not found in the cache.")
+              }
+            });
+            break;
+          default:
+            // This will be handled by the outer .catch().
+            reject(new Error("Unknown command: " + event.data.command));
+        }
+      });
+    }
+  });
+  
 } else {
   console.log(`Workbox didn't load`);
 }
