@@ -6,7 +6,8 @@ plugins and makes the ImJoy App more secure.
 
 Interactions between plugins or between a plugin with the main ImJoy app are carried
 out through a set of API functions (`ImJoy API`). All plugins have access
-to a special object called `api`. With this object plugins can, for example,
+to a special object called `api`. In Javascript, `api` is a global object which you can use directly.
+In Python, you can import it by calling `from imjoy import api`. With this object plugins can, for example,
 show a dialog, send results to the main app, or call another plugin with
 parameters and data.
 
@@ -31,13 +32,6 @@ considerations
 * While you can use `try catch` (JavaScript) or `try except` (Python) syntax to capture error with `async/await` style, you cannot use them to capture error if you use `callback` style.
 
 In the following list of API functions, we provided examples in `async` style. For Python 2, you can easily convert to callback style accordingly.
-
-For more information about Asynchronous programming, we refer to a number of
-excellent ressources:
-
-* [Introduction to Promise in JS](https://developers.google.com/web/fundamentals/primers/promises)
-* [Async functions for JS](https://developers.google.com/web/fundamentals/primers/async-functions)
-* [Asynchronous I/O module for Python 3+](https://docs.python.org/3/library/asyncio.html).
 
 
 ### async/await style
@@ -73,6 +67,7 @@ don't forget to `import asyncio`.
 #### ** Python **
 ```python
 import asyncio
+from imjoy import api
 
 class ImJoyPlugin():
     async def setup(self):
@@ -106,6 +101,7 @@ Below examples for an api function named `XXXXX`:
 class ImJoyPlugin(){
   setup(){
   }
+
   run(ctx){
       api.XXXXX().then(this.callback)
 
@@ -124,6 +120,7 @@ class ImJoyPlugin(){
 
 #### ** Python **
 ```python
+from imjoy import api
 class ImJoyPlugin():
     def setup(self):
         pass
@@ -171,18 +168,97 @@ in JavaScript, but the api functions are called in similar fashion in Python.
 await api.alert(message)
 ```
 
-Shows an alert dialog with a message.
+Shows an alert dialog with a message to the user.
 
 **Arguments**
+<!--****[TODO] add instructions about customizable parameters **-->
 
-* **message**: String. Contains the message to be displayed.
+For plain text:
+
+* **message**: String. Contains the message to be displayed. HTML tags can be used in the message, but only limited to a restricted set of tags and css, more details can be found [here](api?id=sanitized-html-and-css).
+
+For HTML:
+
+* **message**: Object. It contains the following fields:
+  - **content**: Contains the question to be displayed. HTML tags can be used in the message, but only limited to a restricted set of tags and css, more details can be found [here](api?id=sanitized-html-and-css).
+  - **title**: The title of the dialog
+
 
 **Example**
 ```javascript
 await api.alert('hello world')
 ```
-[Try yourself >>](https://imjoy.io/#/app?plugin=oeway/ImJoy-Demo-Plugins:alert&w=examples)
+[Try yourself >>](https://imjoy.io/#/app?plugin=imjoy-team/imjoy-demo-plugins:alert&w=examples)
 
+### api.prompt
+
+```javascript
+const answer = await api.prompt(question, default_answer)
+```
+
+Shows a prompt to ask the user for input.
+
+**Arguments**
+<!--****[TODO] add instructions about customizable parameters **-->
+
+For plain text:
+
+* **question**: String. Contains the question to be displayed.  HTML tags can be used in the message, but only limited to a restricted set of tags and css, more details can be found [here](api?id=sanitized-html-and-css).
+
+For HTML:
+
+* **question**: Object. It contains the following fields:
+  - **content**: Contains the question to be displayed. HTML tags can be used in the message, but only limited to a restricted set of tags and css, more details can be found [here](api?id=sanitized-html-and-css).
+  - **placeholder**: The default answer of the question
+  - **title**: The title of the dialog
+
+* **default_answer** (optional): String. Contains the default answer to the question.
+
+**Returns**
+* **answer**: Boolean. The answer from the user.
+
+**Example**
+```javascript
+const answer = await api.prompt('What is your name?')
+```
+<!--****[TODO] add example **-->
+
+### api.confirm
+
+```javascript
+const confirmation = await api.confirm(question)
+```
+
+Shows a confirmation message to the user.
+
+**Arguments**
+<!--****[TODO] add instructions about customizable parameters **-->
+
+For plain text:
+
+* **question**: String. Contains the question to be displayed.  HTML tags can be used in the message, but only limited to a restricted set of tags and css, more details can be found [here](api?id=sanitized-html-and-css).
+
+For HTML:
+
+* **question**: Object. It contains the following fields:
+  - **content**: Contains the question to be displayed. HTML tags can be used in the message, but only limited to a restricted set of tags and css, more details can be found [here](api?id=sanitized-html-and-css).
+  - **title**: The title of the dialog
+
+**Returns**
+* **confirmation**: Boolean. True or false.
+
+
+**Example**
+```javascript
+const confirmation = await api.confirm('Do you want to delete these files?')
+if(confirmation){
+  delete_file()
+}
+else{
+  console.log('User cancelled file deletion.')
+}
+```
+<!--****[TODO] add example **-->
 
 ### api.call
 ```javascript
@@ -212,7 +288,7 @@ To call a function `funcX` defined in the plugin  `PluginX` with the argument `1
 ```javascript
 await api.call("PluginX", "funcX", 1)
 ```
-[Try yourself >>](https://imjoy.io/#/app?plugin=oeway/ImJoy-Demo-Plugins:call&w=examples)
+[Try yourself >>](https://imjoy.io/#/app?plugin=imjoy-team/imjoy-demo-plugins:call&w=examples)
 
 
 ### api.createWindow
@@ -286,7 +362,7 @@ Create a simple window in JavaScript:
 ```javascript
 win = await api.createWindow({name: 'new window', type: 'Image Window', w:7, h:7, data: {image: ...}, config: {}})
 ```
-[Try yourself >>](https://imjoy.io/#/app?plugin=oeway/ImJoy-Demo-Plugins:createWindow&w=examples)
+[Try yourself >>](https://imjoy.io/#/app?plugin=imjoy-team/imjoy-demo-plugins:createWindow&w=examples)
 
 In python you can either use the `async/await` style for Python 3
 
@@ -303,20 +379,24 @@ def window_callback(win):
 api.createWindow({name: 'new window', type: 'Image Window', w:7, h:7, data: {image: ...}, config: {}}).then(window_callback)
 ```
 
-Use the returned object to update the window, or use `onclose` to set a callback
-function which will be called when the window is closed.
+Use the returned object to update the window, or use `win.on('close', callback)` to set a callback
+function which will be called when the window is closed. Similarly, `win.on('resize', callback)` can be used to set callbacks which will be called when the window size is changed.
 
 To close the created window, call `win.close()`.
+
+To scroll to the window in the ImJoy workspace, call `win.focus()`.
+
+Inside the window plugin, `this.close`, `this.on`, `this.emit`, `this.focus`, `this.resize` can be used.
 
 <!-- tabs:start -->
 
 #### ** JavaScript **
 ```javascript
-// win is the object retured from api.createWindow
+// win is the object returned from api.createWindow
 await win.run({'data': {'image': ...}})
 
-// set `onclose` callback
-win.onclose(()=>{
+// set `on-close` callback
+win.on('close', ()=>{
   console.log('closing window.')
 })
 ```
@@ -333,7 +413,7 @@ Create a window with two images and a comparison slider.
   })
 ```
 
-[Try yourself >>](https://imjoy.io/#/app?plugin=oeway/ImJoy-Demo-Plugins:createWindowImgComp&w=examples)
+[Try yourself >>](https://imjoy.io/#/app?plugin=imjoy-team/imjoy-demo-plugins:createWindowImgComp&w=examples)
 
 #### ** Python **
 ```python
@@ -344,11 +424,11 @@ await win.run({'data': {'image': ...}})
 # or named arguments
 await win.run(data={'image': ...})
 
-# set `onclose` callback
+# set `on-close` callback
 def close_callback():
     print('closing window.')
 
-win.onclose(close_callback)
+win.on('close', close_callback)
 ```
 <!-- tabs:end -->
 
@@ -364,6 +444,8 @@ Log a error message for the current plugin, which is stored in its log history.
 The presence of an error message is indicated with a red icon next to
 the plugin name. Pressing on this icon will open a window showing the log history.
 
+Similar to `console.error` or `print`, `api.error` can accept multiple arguments, which will be concatenated with a space.
+
 **Arguments**
 
 * **message**: String. Error message to be logged.
@@ -377,25 +459,61 @@ api.error('Error occurred during processing.')
 
 ### api.export
 
-<!-- tabs:start -->
+Exports funcstions defined by the plugin as `Plugin API`.
 
-#### ** JavaScript **
+`Plugin API` can be exported as a plugin class or an object/dictionary contains all the api functions:
+
+<!-- tabs:start -->
+#### ** JavaScript (class) **
 ```javascript
+class ImJoyPlugin(){
+  async setup(){
+  }
+  async run(ctx){
+  }
+}
+
 api.export(new ImJoyPlugin())
 ```
+#### ** JavaScript (functions) **
+```javascript
+function setup(){
 
-#### ** Python **
+}
+
+function run(){
+
+}
+
+api.export({setup: setup, run: run})
+```
+
+#### ** Python (class) **
 ```python
+class ImJoyPlugin():
+    def setup(self):
+        pass
+
+    def run(self, ctx):
+        pass
+
 api.export(ImJoyPlugin())
+```
+
+#### ** Python (functions) **
+```python
+def setup():
+    pass
+
+def run(ctx):
+    pass
+
+api.export({'setup': setup, 'run': run})
 ```
 <!-- tabs:end -->
 
-
-Exports the plugin class or an object/dict as `Plugin API`.
-
 This call is mandatory for every ImJoy plugin (typically as the last line of the plugin script).
-Every member of the `ImJoyPlugin` instance will be exported as `Plugin API`, which means those exported functions
-or variables can be called or used by the ImJoy app or another plugin.
+Every member of the `ImJoyPlugin` instance will be exported as `Plugin API`, which means those exported functions can be called or used by the ImJoy app or another plugin.
 This then allows other plugins to use `api.run` or `api.call` to call functions of the plugin.
 
 Only functions and variables with primitive types can be exported (number, string, boolean).
@@ -424,111 +542,6 @@ If a string is passed, it will be wrapped as a text file.
 ```javascript
 var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
 api.exportFile(blob, 'hello.txt')
-```
-
-### api.fs.* [experimental]
-```javascript
-api.fs.XXXXX(...)
-```
-
-Access the in-browser filesystem with the [Node JS filesystem API](https://nodejs.org/api/fs.html). More details about the underlying implemetation, see [BrowserFS](https://github.com/jvilk/BrowserFS), the default file system in ImJoy supports the following nodes:
-
- * `/tmp`: `InMemory`, data is stored in browser memory, cleared when ImJoy is closed.
-
- * `/home`: `IndexedDB`, data is stored in the browser IndexedDB database, can be used as persistent storage.
-
-**Examples**
-
-<!-- tabs:start -->
-#### ** JavaScript **
-```javascript
-api.fs.writeFile('/tmp/temp.txt', 'hello world', function(err, data){
-    if (err) {
-        console.log(err);
-        return
-    }
-    console.log("Successfully Written to File.");
-    api.fs.readFile('/tmp/temp.txt', 'utf8', function (err, data) {
-        if (err) {
-            console.log(err);
-            return
-        }
-        console.log('Reald from file', data)
-    });
-});
-```
-#### ** Python **
-```python
-def read(err, data=None):
-    if err:
-        print(err)
-        return
-
-    def cb(err, data=None):
-        if err:
-            print(err)
-            return
-        api.log(data)
-    api.fs.readFile('/tmp/temp.txt', 'utf8', cb)
-
-api.fs.writeFile('/tmp/temp.txt', 'hello world', read)
-
-```
-<!-- tabs:end -->
-
-
-Reading large files chunk-by-chunk in JavaScript:
-```javascript
-function generate_random_data(size){
-    var chars = 'abcdefghijklmnopqrstuvwxyz'.split('');
-    var len = chars.length;
-    var random_data = [];
-
-    while (size--) {
-        random_data.push(chars[Math.random()*len | 0]);
-    }
-
-    return random_data.join('');
-}
-
-const fs = api.fs
-fs.writeFile('/tmp/test.txt', generate_random_data(100000), function(err){
-if (err){
-    console.error(err);
-}
-fs.open('/tmp/test.txt', 'r', function(err, fd) {
-    fs.fstat(fd, function(err, stats) {
-      if(err){
-          reject(err)
-          return
-      }
-      var bufferSize = stats.size,
-          chunkSize = 512,
-          buffer = new Uint8Array(new ArrayBuffer(chunkSize)),
-          bytesRead = 0;
-
-      var stopReadding = false
-      var readCallback = function(err, bytesRead, read_buffer){
-          if(err){
-              console.log('err : ' +  err);
-              stopReadding = true
-              reject(err)
-          }
-          const bytes = read_buffer.slice(0, bytesRead)
-          console.log('new chunk:', bytes)
-      };
-      while (bytesRead < bufferSize && !stopReadding) {
-          if ((bytesRead + chunkSize) > bufferSize) {
-              chunkSize = (bufferSize - bytesRead);
-          }
-          fs.read(fd, buffer, 0, chunkSize, bytesRead, readCallback);
-          bytesRead += chunkSize;
-      }
-      fs.close(fd);
-      resolve()
-    });
-  });
-})
 ```
 
 ### api.getAttachment
@@ -577,93 +590,8 @@ Retrieves configurations for plugin.
 ```javascript
 sigma = await api.getConfig('sigma')
 ```
-[Try yourself in the setConfig example >>](https://imjoy.io/#/app?plugin=oeway/ImJoy-Demo-Plugins:setConfig&w=examples)
+[Try yourself in the setConfig example >>](https://imjoy.io/#/app?plugin=imjoy-team/imjoy-demo-plugins:setConfig&w=examples)
 
-### api.getFilePath
-```javascript
-file_path = await api.getFilePath(config)
-```
-
-Converts an url generated by `api.getFileUrl` into an absolute file path on the file system.
-
-**Arguments**
-* **config**. Object (JavaScript) or dictionary (Python). Options for getting file path from an URL.
-It contains the following fields:
-
-  - **url**: String. Specifies the url to be converted.
-  - **engine**: String. the url of the plugin engine.
-
-**Returns**
-* **file_path**: String. Absolute file path.
-
-**Examples**
-
-Obtain file path from URL
-
-```javascript
-url = await api.getFileUrl({'url': 'http://127.0.0.1:9527/file/1ba89354-ae98-457c-a53b-39a4bdd14941/output.png', 'engine': 'http://127.0.0.1:9527'})
-```
-
-### api.getFileUrl
-```python
-file_url = await api.getFileUrl(config)
-```
-
-Generates an url to access a local file or directory path.
-
-When this function is called, a confirmation dialog will be displayed to obtain the
-user's permission. This means a JavaScript plugin cannot access the user's file system without notifying the user.
-
-If a directory is selected, it can be used to access all the files or subfolders contained in the folder.
-While this can be used to serve the entire folder, please *BE CAREFUL** when using this feature -- if the root folder or disk is selected, the entire file system will be exposed through the url. If you are running the plugin engine on a public server,  anyone knows the url will be able to access your files.
-
-The optional argument `header` describes how the url will be served. If no header
-is specified, the url is specified to be rendered in the browser, and the
-`Content-Type` will be guessed from the file name by Python library
-[mimetypes](https://docs.python.org/3/library/mimetypes.html). If `mimetypes`
-failed to guess a content type, the fallback type will be `application/octet-stream`.
-Either behavior can be changed.
-
-**Arguments**
-* **config**. Object (JavaScript) or dictionary (Python). Options for getting file URL from a absolute file path.
-It contains the following fields:
-  - **path**: String. Specifies the absolute file path to be converted.
-  - **engine**: String. the url of the plugin engine.
-  - **password** (optional): String. Password to access the file or folder
-  - **headers** (optional): String. By default, the generated url will be served
-    with the header `Content-disposition: inline; filename="XXXXXXXXX.XXX"`
-    for rendering in the browser. You can modify this header to create downloadable links,
-    or alter how the link is rendered.
-
-**Returns**
-* **file_url**: String. File path in url format.
-
-**Examples**
-
-Obtain file url with default settings
-
-```javascript
-api.getFileUrl({'path': '~/data/output.png', 'engine': 'http://127.0.0.1:9527'})
-// will return something like `http://127.0.0.1:9527/file/1ba89354-ae98-457c-a53b-39a4bdd14941/output.png`.
-```
-
-Specify password to access file
-```javascript
-api.getFileUrl({'path': '~/data/output.png', 'password': 'SECRET_PASSWORD', 'engine': 'http://127.0.0.1:9527'})
-// will return something like `http://127.0.0.1:9527/file/1ba89354-ae98-457c-a53b-39a4bdd14941@SECRET_PASSWORD/output.png`.
-```
-
-Specify header to create downloadable link
-```javascript
-headers={'Content-disposition': 'attachment; filename="XXXXXXXXX.XXX"'}
-api.getFileUrl({'path': '~/data/output.png', 'headers': headers, 'engine': 'http://127.0.0.1:9527'})
-```
-
-Specify header for specific content type
-```javascript
-headers={'Content-disposition': 'inline; filename="XXXXXXXXX.XXX"', 'Content-Type': 'image/png'}
-api.getFileUrl({'path': '~/data/output.png', 'headers': headers, 'engine': 'http://127.0.0.1:9527'})
-```
 
 ### api.getPlugin
 ```javascript
@@ -699,8 +627,93 @@ result = await pluginX.run()
 // Assuming that PluginX defined an API function `funcX`, you can access it with:
 await pluginX.funcX()
 ```
-[Try yourself >>](https://imjoy.io/#/app?plugin=oeway/ImJoy-Demo-Plugins:getPlugin&w=examples)
+[Try yourself >>](https://imjoy.io/#/app?plugin=imjoy-team/imjoy-demo-plugins:getPlugin&w=examples)
 
+
+
+### api.getEngine
+```javascript
+engine = await api.getEngine(engine_url)
+```
+
+Gets the API object of an plugin engine.
+
+**Arguments**
+
+* **engine_url**: String. URL of the plugin engine.
+
+**Returns**
+* **engine**: Object. An engine object which can be used to access the engine API functions.
+
+**Example**
+
+Get the API of the engine (url = `https://127.0.0.1:2957`), and access its functions:
+
+```javascript
+engine = await api.getEngine("https://127.0.0.1:2957")
+await engine.disconnect()
+```
+
+### api.getEngineFactory
+```javascript
+engine_factory = await api.getEngineFactory(engine_factory_name)
+```
+
+Gets the API object of an plugin engine factory.
+
+**Arguments**
+
+* **engine_factory_name**: String. Name of the plugin engine factory.
+
+**Returns**
+* **engine_factory**: Object. An plugin engine factory object which can be used to access the engine API functions.
+
+**Example**
+
+Get the API of the plugin engine factory (name = `ImJoy-Engine`), and access its functions:
+
+```javascript
+engine_factory = await api.getEngineFactory("ImJoy-Engine")
+await engine_factory.addEngine(config)
+```
+
+
+### api.getFileManager
+```javascript
+file_manager = await api.getFileManager(file_manager_url)
+```
+
+Gets the API object of an file manager.
+
+Note: since `api_version > 0.1.6`, `api.getFileUrl` and `api.requestUploadUrl` are deprecated, the replacement solution is to use `api.getFileManager` to get the file manager first, and access `getFileUrl` and `requestUploadUrl` from the returned file manager object.
+
+**Arguments**
+
+* **file_manager_url**: String. URL of the file manager.
+
+**Returns**
+* **file_manager**: Object. An file manager object which can be used to access the file manager API functions.
+
+**Example**
+
+Get the API of the file manager (url = `https://127.0.0.1:2957`), and access its functions:
+
+```javascript
+file_manager = await api.getFileManager("https://127.0.0.1:2957")
+await file_manager.listFiles()
+```
+
+Get file URL for downloading (replacement of `api.getFileUrl`)
+```javascript
+file_manager = await api.getFileManager("https://127.0.0.1:2957")
+await file_manager.getFileUrl({'path': './data/output.png'})
+```
+
+Request file URL for uploading (replacement of `api.requestUploadUrl`)
+```javascript
+file_manager = await api.getFileManager("https://127.0.0.1:2957")
+await file_manager.requestUploadUrl({'path': './data/input.png'})
+```
 
 ### api.log
 
@@ -717,9 +730,11 @@ logged messages.
 Status message can either be a string or an image. The latter can be used to create
 an automated log, for example, to log the training of a neural network.
 
+Similar to `console.log` or `print`, `api.log` can accept multiple arguments, which will be concatenated with a space.
+
 **Arguments**
 
-* **message**: String. Message to be logged.
+* **message**: String. Message to be logged.value
 
 **Examples**
 
@@ -732,17 +747,6 @@ Log a an image file.
 ```javascript
 api.log({type: 'image', value: 'https://imjoy.io/static/img/imjoy-icon.png' })
 ```
-
-### api.onClose
-```javascript
-api.onClose(callback_func)
-```
-
-Set a callback function to the current plugin which will be called when terminating the plugin.
-
-**Arguments**
-
-* **callback_func**: String. The callback function to be called during plugin termination.
 
 
 ### api.progress
@@ -762,7 +766,7 @@ This progress bar will be displayed in the plugin menu itself. Please use
 ```javascript
 api.progress(85)
 ```
-[Try yourself >>](https://imjoy.io/#/app?plugin=oeway/ImJoy-Demo-Plugins:progress&w=examples)
+[Try yourself >>](https://imjoy.io/#/app?plugin=imjoy-team/imjoy-demo-plugins:progress&w=examples)
 
 
 ### api.register
@@ -791,8 +795,8 @@ multiple times to overwrite the previous version. `api.register` can also be use
   - `name`: String. Name of op.
   - `ui`: Object (JavaScript) or dictionary (Python). Rendered interface. Defined
        with the same rule as the `ui` field in `<config>`.
-  - `run`: String, optional. Specifies the `Plugin API` function that will run when
-      the op is executed. If not specified, the `run` function of the plugin will be executed.
+  - `run`: Function, optional. Specifies the `Plugin API` function that will run when
+      the op is executed. Note that it must be a member of the plugin class or a function being exported with `api.export`. If not specified, the `run` function of the plugin will be executed.
   - `update`: String, optional. Specifies another `Plugin API` function that will run
       whenever any option in the `ui` is changed.
   - `inputs`: Object, optional. A [JSON Schema](https://json-schema.org/) which defines the inputs of this op.
@@ -827,99 +831,8 @@ update_lut(ctx) {
 };
 
 ```
-[**Try yourself >>**](https://imjoy.io/#/app?plugin=oeway/ImJoy-Demo-Plugins:register&w=examples) Compare how the ops for favourite number and animal are implemented.
+[**Try yourself >>**](https://imjoy.io/#/app?plugin=imjoy-team/imjoy-demo-plugins:register&w=examples) Compare how the ops for favourite number and animal are implemented.
 
-
-### api.requestUploadUrl
-```python
-upload_url = await api.requestUploadUrl(config)
-```
-
-Generates an url for upload a file to the plugin engine
-
-**Arguments**
-* **config**. Object (JavaScript) or dictionary (Python). Options for generating a url for uploading a file.
-It contains the following fields:
-  - **dir** (optional): String. If specified, `dir` can be used to define the folder which will be used to contain the uploaded file. If relative path is used, then it will relative to the current workspace folder. If not specified, the default value is the current work folder.
-  - **path** (optional): String. If specified, it will override the file name.
-
-  - **engine**: String. The engine url of the plugin engine which the file will be uploaded to. For native-python plugin, if not specified, the plugin's current engine will be used. It is required for other plugin types.
-  - **overwrite** (optional): String. If the file exists, whether overwrite it. By default, it will raise error if a file already exists.
-
-**Returns**
-* **upload_url**: String. an URL for performing upload.
-
-**Examples**
-
-Obtain url with default settings. It will return something like `http://127.0.0.1:9527/upload/1ba89354-ae98-457c-a53b-39a4bdd14941`.
-
-```javascript
-const url = await api.requestUploadUrl({'path': 'data/output.png', 'engine': 'http://127.0.0.1:9527'})
-```
-
-
-### api.uploadFileToUrl
-```python
-fileInfo = await api.uploadFileToUrl(config)
-```
-
-Upload a file to a upload url.
-
-**Arguments**
-* **config**. Object (JavaScript) or dictionary (Python).
-It contains the following fields:
-  - **url** : String. The upload url to be uploaded (get from `api.requestUploadUrl`).
-
-**Returns**
-* **fileInfo**. Object (JavaScript) or dictionary (Python). Information about the uploaded file.
-It contains the following fields:
-  - **path** : the path to where the file was saved
-  - **size** : the size (bytes) of the uploaded file
-
-**Examples**
-
-```javascript
-
-const url = await api.requestUploadUrl({engine: 'http://127.0.0.1:9527', overwrite: true})
-
-const imageFile = document.getElementById('file').files[0]
-
-const fileInfo = await api.uploadFileToUrl({file:imageFile, url: url})
-
-console.log(fileInfo.path)
-```
-
-### api.downloadFileFromUrl
-```python
-file = await api.downloadFileFromUrl(config)
-```
-
-Upload a file to a upload url.
-
-**Arguments**
-* **config**. Object (JavaScript) or dictionary (Python).
-It contains the following fields:
-  - **url** : String. The url to the remote file (get from `api.getFileUrl`).
-
-**Returns**
-* **fileInfo**. Object (JavaScript) or dictionary (Python). The downloaded file.
-
-**Examples**
-
-Download a file on the plugin engine
-```javascript
-
-const path = '/path/to/the/file'
-const url = await api.getFileUrl({engine: 'http://127.0.0.1:9527', path: path })
-
-const file = await api.downloadFileFromUrl({url: url})
-```
-
-You can also use it to download files from other website
-```javascript
-const url = 'https://raw.githubusercontent.com/oeway/ImJoy/master/README.md'
-const file = await api.downloadFileFromUrl({url: url})
-```
 
 ### api.run
 ```javascript
@@ -942,7 +855,7 @@ Example to call one plugin:
 ```python
 await api.run("Python Demo Plugin")
 ```
-[**Try yourself >>**](https://imjoy.io/#/app?plugin=oeway/ImJoy-Demo-Plugins:run&w=examples)
+[**Try yourself >>**](https://imjoy.io/#/app?plugin=imjoy-team/imjoy-demo-plugins:run&w=examples)
 
 Example for concurrent execution of two plugins, where the two plugins are
 executed simultaneously, but ImJoy waits for the result one after the other.
@@ -1001,7 +914,7 @@ any of the field name of the `<config>` block.
 ```javascript
 api.setConfig('sigma', 928)
 ```
-[Try yourself >>](https://imjoy.io/#/app?plugin=oeway/ImJoy-Demo-Plugins:setConfig&w=examples)
+[Try yourself >>](https://imjoy.io/#/app?plugin=imjoy-team/imjoy-demo-plugins:setConfig&w=examples)
 
 
 ### api.showDialog
@@ -1035,30 +948,22 @@ result = await api.showDialog({
    "ui": "Hey, please select a value for sigma: {id:'sigma', type:'choose', options:['1', '3'], placeholder: '1'}.",
 })
 ```
-[Try yourself >>](https://imjoy.io/#/app?plugin=oeway/ImJoy-Demo-Plugins:showDialog&w=examples)
+[Try yourself >>](https://imjoy.io/#/app?plugin=imjoy-team/imjoy-demo-plugins:showDialog&w=examples)
 
 
 ### api.showFileDialog
 ```javascript
-file_path = await api.showFileDialog(config)
+ret = await api.showFileDialog(config)
 ```
 
 Shows a file dialog to select files or directories.
 
 The function will return a promise from which you can get the file path string.
 
-Importantly, this api function **works only** if the Python plugin engine is connected,
-even if you are using it in JavaScript. The default root directory will be
-the current workspace for python plugins, and the home folder for all other plugin
-types.
+Depending on the plugin engine implementation, ImJoy will try to select the a file manager specified by the plugin engine via the `api.FILE_MANAGER_URL` constant.
 
 The file handling is different for the ImJoy app and the plugin engine. We recommend
 reading the dedicated section in the [user manual](development?id=loading-saving-data) to understand the difference.
-When calling this api function within a **JavaScript** plugin, you will obtain
-a warning message as the one shown below. It essentially indicates that the
-ImJoy app now requests access to this part of your local file system:
-
-![imjoy-showFileDialog-warning](assets/imjoy-showFileDialog-warning.png ':size=700')
 
 Please note that the file-path for a JavaScript plugin is returned as an url, while
 for a Python plugin it will be the absolute file-path. The url format is required for
@@ -1086,27 +991,37 @@ It contains the following fields:
   - **uri_type**: String. Format of returned file path.
     - `url` (default for JavaScript plugins): <!--**[TODO]**-->
     - `path` (default for Python plugins): <!--**[TODO]**-->
+  - **file_manager**: String. Specify the file manager via url, in a `native-python` plugin for example, you can get the file manager URL via `api.FILE_MANAGER_URL`.
+  
+  - **hide_unselected**: If you specified file_manager, all other file managers will still show up and if you want to hide them, set `hide_unselected` to `true`.
 
 (Please also consult [this section](api?id=input-arguments) for how arguments can be set.)
 
 **Returns**
-* **file_path**: String. Contains file-path as specified by `uri_type`.
+* **ret**: Object (JavaScript) or dictionary (Python). Contains path or url and engine url as specified by `uri_type`.
+  - **path**: String or Array. It will be included for both `uri_type` (`'path'` or `'url'`). If multiple files are selected, it will be an array of paths.
+  - **url**: String or Array. Only available for `uri_type = 'url'`. If multiple files are selected, it will be an array of urls.
+  - **engine**: String. The engine url selected by the user.
 
 **Examples**
 
-Example will show either the specified file-name or an error message that the
+Example will show either the specified file-name or an message that the
 user canceled or that the plugin engine was not running.
 
 ```javascript
-try{
-  const file_path = await api.showFileDialog({root: '~'})
-  await api.alert("Selected file " + file_path)
+
+const ret = await api.showFileDialog({root: '/', uri_type: 'url'})
+if(ret){
+  await api.alert("Selected file " + ret.url)
 }
-catch(e){
-  await api.alert("Error: "+e.toString())
-};
+else{
+  await api.alert("User cancelled file selection.")
+}
+
+
 ```
-[Try yourself >>](https://imjoy.io/#/app?plugin=oeway/ImJoy-Demo-Plugins:showFileDialog&w=examples)
+<!--**[TODO]: update this example to new api**-->
+[Try yourself >>](https://imjoy.io/#/app?plugin=imjoy-team/imjoy-demo-plugins:showFileDialog&w=examples)
 
 
 ### api.showMessage
@@ -1143,7 +1058,7 @@ Updates the progress bar on the Imjoy GUI.
 ```javascript
 api.showProgress(85)
 ```
-[Try yourself >>](https://imjoy.io/#/app?plugin=oeway/ImJoy-Demo-Plugins:showProgress&w=examples)
+[Try yourself >>](https://imjoy.io/#/app?plugin=imjoy-team/imjoy-demo-plugins:showProgress&w=examples)
 
 ### api.showSnackbar
 ```javascript
@@ -1162,7 +1077,7 @@ Shows a popup message with a snackbar, and disappear in a specific amount of tim
 api.showSnackbar('processing...', 5)
 ```
 
-[Try yourself >>](https://imjoy.io/#/app?plugin=oeway/ImJoy-Demo-Plugins:showSnackbar&w=examples)
+[Try yourself >>](https://imjoy.io/#/app?plugin=imjoy-team/imjoy-demo-plugins:showSnackbar&w=examples)
 
 ### api.showStatus
 ```javascript
@@ -1180,7 +1095,7 @@ Updates the status text on the Imjoy GUI.
 api.showStatus('processing...')
 ```
 
-[Try yourself >>](https://imjoy.io/#/app?plugin=oeway/ImJoy-Demo-Plugins:showStatus&w=examples)
+[Try yourself >>](https://imjoy.io/#/app?plugin=imjoy-team/imjoy-demo-plugins:showStatus&w=examples)
 
 
 ### api.TAG constant
@@ -1211,8 +1126,7 @@ Currently supported functions for **all plugins** are:
  * `api.utils.$forceUpdate()`: refreshes the GUI manually.
  * `api.utils.openUrl(url)`: opens an `url` in a new browser tab.
  * `api.utils.sleep(duration)`: sleeps for the indicated `duration` in seconds. Note for Python plugins, use `time.sleep` instead.)
- * `api.utils.assert(expression, error_message)`: assert an expression, typically used in a test to make sure a certain condition is met. E.g: `api.utils.assert(v === 98)`
-
+ 
 Currently supported functions for **Python plugins** are:
  * `api.utils.kill(subprocess)`: kills a `subprocess` in python.
  * `api.utils.ndarray(numpy_array)`: wrapps a ndarray `numpy_array` according to the ImJoy ndarray format.
@@ -1226,3 +1140,172 @@ Name of the current workspace.
 **Only available to native-python plugins**
 
 URL of the current plugin engine.
+
+### api.FILE_MANAGER_URL constant
+**Only available to native-python plugins**
+
+URL of the file manager registered by the current plugin engine.
+
+## Experimental APIs
+
+### `_rpcEncode` and `_rpcDecode`
+Remote Procedure Calls (RPC) in ImJoy allows isolated plugins communcate via functions calls and transmit data by passing augments, however, not all the data types are supported. It only support primitive types (number, string, bytes) and basic array/list, object/dictionary. To extend the supported types, one can provide custom encoding and decoding functions (as the plugin API).
+
+
+```javascript
+class ImJoyPlugin {
+  async setup() {
+  }
+
+  async run(ctx) {
+
+  }
+
+  _rpcEncode(d){
+    if(d === 998 ){
+      return {__rpc_dtype__: 'a_special_number'}
+    }
+    else
+      return d
+  }
+
+  _rpcDecode(d){
+    if(d.__rpc_dtype__ === 'a_special_number'){
+      return 998
+    }
+  }
+}
+```
+NOTE: this only works inside plugins with `window`, `iframe`, `web-worker`, it doesn't not work directly for e.g. `native-python` unless the coresponding plugin engine support it.
+
+
+## Internal plugins
+
+Besides the default ImJoy api, we provide a set of internally supported plugins which can be used directly. These plugins will be loaded only if the plugin is requested by another plugin via `api.getPlugin(...)`.
+
+Here is a list of these internal plugins along with their api functions:
+
+### BrowserFS
+
+To use the `BrowserFS` plugin, you need to first call:
+
+`const bfs = await api.getPlugin('BrowserFS')` in Javascript, or `bfs = await api.getPlugin('BrowserFS')` in Python.
+
+Then, you can use [Node JS filesystem API](https://nodejs.org/api/fs.html) to access the in-browser filesystem (e.g.: `bfs.readFile('/tmp/temp.txt', 'utf-8')`). For more details about the underlying implemetation, see [BrowserFS](https://github.com/jvilk/BrowserFS), the default file system in ImJoy supports the following nodes:
+
+ * `/tmp`: `InMemory`, data is stored in browser memory, cleared when ImJoy is closed.
+
+ * `/home`: `IndexedDB`, data is stored in the browser IndexedDB database, can be used as persistent storage.
+
+**Examples**
+
+<!-- tabs:start -->
+#### ** JavaScript **
+```javascript
+async function test_browser_fs(){
+  const bfs_plugin = await api.getPlugin('BrowserFS')
+  const bfs = bfs_plugin.fs
+
+  bfs.writeFile('/tmp/temp.txt', 'hello world', function(err, data){
+      if (err) {
+          console.log(err);
+          return
+      }
+      console.log("Successfully Written to File.");
+      bfs.readFile('/tmp/temp.txt', 'utf8', function (err, data) {
+          if (err) {
+              console.log(err);
+              return
+          }
+          console.log('Read from file', data)
+      });
+  });
+}
+```
+#### ** Python **
+```python
+
+async def test_browser_fs():
+  bfs_plugin = await api.getPlugin('BrowserFS')
+  bfs = bfs_plugin.fs
+
+  def read(err, data=None):
+      if err:
+          print(err)
+          return
+
+      def cb(err, data=None):
+          if err:
+              print(err)
+              return
+          api.log(data)
+      bfs.readFile('/tmp/temp.txt', 'utf8', cb)
+
+  bfs.writeFile('/tmp/temp.txt', 'hello world', read)
+
+```
+<!-- tabs:end -->
+
+
+Reading large files chunk-by-chunk in JavaScript:
+```javascript
+function generate_random_data(size){
+    var chars = 'abcdefghijklmnopqrstuvwxyz'.split('');
+    var len = chars.length;
+    var random_data = [];
+
+    while (size--) {
+        random_data.push(chars[Math.random()*len | 0]);
+    }
+
+    return random_data.join('');
+}
+
+
+bfs.writeFile('/tmp/test.txt', generate_random_data(100000), function(err){
+if (err){
+    console.error(err);
+}
+bfs.open('/tmp/test.txt', 'r', function(err, fd) {
+    bfs.fstat(fd, function(err, stats) {
+      if(err){
+          reject(err)
+          return
+      }
+      var bufferSize = stats.size,
+          chunkSize = 512,
+          buffer = new Uint8Array(new ArrayBuffer(chunkSize)),
+          bytesRead = 0;
+
+      var stopReadding = false
+      var readCallback = function(err, bytesRead, read_buffer){
+          if(err){
+              console.log('err : ' +  err);
+              stopReadding = true
+              reject(err)
+          }
+          const bytes = read_buffer.slice(0, bytesRead)
+          console.log('new chunk:', bytes)
+      };
+      while (bytesRead < bufferSize && !stopReadding) {
+          if ((bytesRead + chunkSize) > bufferSize) {
+              chunkSize = (bufferSize - bytesRead);
+          }
+          bfs.read(fd, buffer, 0, chunkSize, bytesRead, readCallback);
+          bytesRead += chunkSize;
+      }
+      bfs.close(fd);
+      resolve()
+    });
+  });
+})
+```
+
+## Sanitized HTML and CSS
+
+For security reasons, we used [DOMPurify](https://github.com/cure53/DOMPurify) to sanitize the HTML and CSS provided to shown in the ImJoy main interface. For example, all the markdown, `ui` string for `<config>` block and `api.register`, and the content shown in `api.alert`, `api.confirm` and `api.prompt`.
+
+Also notice that the content shown inside a `window` plugin do not have these restrictions.
+
+
+
