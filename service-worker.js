@@ -11,7 +11,7 @@ if (workbox) {
    */
 
   workbox.setConfig({
-    debug: false,
+    debug: true,
   });
 
   const removeQuery = {
@@ -101,7 +101,7 @@ if (workbox) {
   caches.open(workbox.core.cacheNames.runtime).then(function(cache) {
     cache.keys().then(function(requests) {
       var urls = requests.map(function(request) {
-        return request.url;
+        return request.url.split('?')[0];
       });
       cached_keys = new Set(urls);
       console.log("cached requirements:", cached_keys);
@@ -167,8 +167,8 @@ if (workbox) {
             break;
           // This command removes a request/response pair from the cache (assuming it exists).
           case "delete":
-            cached_keys.delete(event.data.url);
-            cache.delete(event.data.url).then(function(success) {
+            cached_keys.delete(event.data.url.split('?')[0]);
+            cache.delete(event.data.url.split('?')[0]).then(function(success) {
               if (success) {
                 resolve();
               } else {
