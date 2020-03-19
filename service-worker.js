@@ -16,10 +16,7 @@ if (workbox) {
 
   const removeQuery = {
     cacheKeyWillBeUsed: ({ request }) => {
-      const newUrl = new URL(request.url);
-      newUrl.search = "";
-      newUrl.hash = "";
-      return newUrl.href;
+      return request.url.split('?')[0];
     },
   };
 
@@ -98,13 +95,13 @@ if (workbox) {
 
   workbox.routing.registerRoute(
     matchCb,
-    new workbox.strategies.StaleWhileRevalidate()
+    new workbox.strategies.StaleWhileRevalidate({ plugins: [removeQuery] })
   );
 
   caches.open(workbox.core.cacheNames.runtime).then(function(cache) {
     cache.keys().then(function(requests) {
       var urls = requests.map(function(request) {
-        return request.url.split('?')[0];
+        return request.url;
       });
       cached_keys = new Set(urls);
       console.log("cached requirements:", cached_keys);
@@ -130,7 +127,7 @@ if (workbox) {
           case "keys":
             cache.keys().then(function(requests) {
               var urls = requests.map(function(request) {
-                return request.url.split('?')[0];
+                return request.url;
               });
               resolve(urls.sort());
             });
@@ -155,10 +152,11 @@ if (workbox) {
             var request = new Request(event.data.url);
             fetch(request)
               .then(function(response) {
-                cached_keys.add(event.data.url.split('?')[0]);
+                const normalized_url = event.data.url.split('?')[0];
+                cached_keys.add(normalized_url);
                 console.log("Caching requirement: " + event.data.url);
                 cache
-                  .put(event.data.url.split('?')[0], response)
+                  .put(normalized_url, response)
                   .then(resolve)
                   .catch(reject);
               })
@@ -169,8 +167,8 @@ if (workbox) {
             break;
           // This command removes a request/response pair from the cache (assuming it exists).
           case "delete":
-            cached_keys.delete(event.data.url.split('?')[0]);
-            cache.delete(event.data.url.split('?')[0]).then(function(success) {
+            cached_keys.delete(event.data.url);
+            cache.delete(event.data.url).then(function(success) {
               if (success) {
                 resolve();
               } else {
