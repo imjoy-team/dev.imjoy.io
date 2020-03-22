@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.6447c9fc6cd9e408349d3e27a5667908.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/precache-manifest.30e423785d2600db9e6b89aa8bd3a67b.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 /* eslint-disable */
 
@@ -20,7 +20,6 @@ if (workbox) {
     },
   };
 
-  workbox.core.setCacheNameDetails({ prefix: "ImJoy.io" });
   self.__precacheManifest = self.__precacheManifest || [];
 
   workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
