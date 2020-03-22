@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.a78812e29f44b9ed3ae638b650034542.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/precache-manifest.6447c9fc6cd9e408349d3e27a5667908.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 /* eslint-disable */
 
@@ -11,12 +11,12 @@ if (workbox) {
    */
 
   workbox.setConfig({
-    debug: true,
+    debug: false,
   });
 
   const removeQuery = {
     cacheKeyWillBeUsed: ({ request }) => {
-      return request.url.split('?')[0];
+      return request.url.split("?")[0];
     },
   };
 
@@ -90,7 +90,7 @@ if (workbox) {
 
   var cached_keys = new Set();
   function matchCb(request) {
-    return cached_keys.has(request.url.href.split('?')[0]);
+    return cached_keys.has(request.url.href.split("?")[0]);
   }
 
   workbox.routing.registerRoute(
@@ -101,7 +101,7 @@ if (workbox) {
   caches.open(workbox.core.cacheNames.runtime).then(function(cache) {
     cache.keys().then(function(requests) {
       var urls = requests.map(function(request) {
-        return request.url.split('?')[0];
+        return request.url.split("?")[0];
       });
       cached_keys = new Set(urls);
       console.log("cached requirements:", cached_keys);
@@ -152,7 +152,7 @@ if (workbox) {
             var request = new Request(event.data.url);
             fetch(request)
               .then(function(response) {
-                const normalized_url = event.data.url.split('?')[0];
+                const normalized_url = event.data.url.split("?")[0];
                 cached_keys.add(normalized_url);
                 console.log("Caching requirement: " + event.data.url);
                 cache
@@ -167,8 +167,8 @@ if (workbox) {
             break;
           // This command removes a request/response pair from the cache (assuming it exists).
           case "delete":
-            cached_keys.delete(event.data.url.split('?')[0]);
-            cache.delete(event.data.url.split('?')[0]).then(function(success) {
+            cached_keys.delete(event.data.url.split("?")[0]);
+            cache.delete(event.data.url.split("?")[0]).then(function(success) {
               if (success) {
                 resolve();
               } else {
@@ -177,12 +177,16 @@ if (workbox) {
             });
             break;
           case "clear":
-              caches.keys().then(function(keyList) {
-                return Promise.all(keyList.map(function(key) {
+            caches.keys().then(function(keyList) {
+              Promise.all(
+                keyList.map(function(key) {
                   return caches.delete(key);
-                }));
-              })
-              break;
+                })
+              )
+                .then(resolve)
+                .catch(reject);
+            });
+            break;
           default:
             // This will be handled by the outer .catch().
             reject(new Error("Unknown command: " + event.data.command));
